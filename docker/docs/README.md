@@ -8,3 +8,4 @@
 * Docker basics
     * [commands](basics/01_commands.md)
     * [containers](basics/02_containers.md)
+    * [exposing/publishing ports](basics/03_exposing_and_publishing_container_ports.md)
