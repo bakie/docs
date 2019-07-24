@@ -5,6 +5,7 @@
 * [Basic commands](#basic-commands)
     * [Run container](#run-container)
     * [List containers](#list-containers)
+    * [Executing commands](#executing-commands)
 
 ## Help
 ```
@@ -74,4 +75,20 @@ Options:
       --no-trunc        Don't truncate output
   -q, --quiet           Only display numeric IDs
   -s, --size            Display total file sizes
+```
+
+## Executing commands
+There are a couple of ways to execute command on a container
+* Specify the command in the Dockerfile
+* During a docker run
+* using the `exec` command
+
+Start a container with a command.
+```
+$ docker container run <IMAGE> <CMD>
+```
+
+Execute a command on running container
+```
+$ docker container exec -it <IMAGE> <CMD>
 ```
