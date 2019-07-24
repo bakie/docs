@@ -1,4 +1,4 @@
-# Commands Snippets
+# Docs
 
 This repo holds all my commands that I use consisting of explanation and code snippets.
 
