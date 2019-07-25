@@ -14,3 +14,6 @@
     * [overview](networking/01_overview.md)
     * [commands](networking/02_commands.md)
     * [networking containers](networking/03_networking_containers.md)
+* Storage
+    * [overview](storage/01_overview.md)
+    * [commands](storage/02_commands.md)
