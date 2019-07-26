@@ -5,7 +5,8 @@
 
 ## Using build arguments
 We can use build arguments to paramerterize an image build. Note that ARG is only available during the build of a Docker
-image (RUN etc), not after the image is created and containers are started from it (ENTRYPOINT, CMD)
+image (RUN etc), not after the image is created and containers are started from it (ENTRYPOINT, CMD). You can achieve 
+this by using environment variables. 
 
 Use the `--build-arg` flag when building an image:
 ```
