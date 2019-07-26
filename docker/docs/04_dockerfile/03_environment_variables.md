@@ -6,15 +6,15 @@
 ## Using environment variables
 We can use ENV to update the PATH environment variable for the software that your container installs.
 
-Use the --env flag to pass an environment variable when building an image:
+Use the `--env` flag to pass an environment variable when building an image:
 ```
---env [KEY]=[VALUE]
+--env <key>=<value>
 ```
 
 Use the ENV instruction in the Dockerfile:
 ```
-ENV [KEY] [VALUE]
-ENV [KEY]=[VALUE]  
+ENV <key> <value>
+ENV <key>=<value>
 ```
 
 We are going to change the simple node app so we can specify the port and the deploy environment:
@@ -64,7 +64,7 @@ RUN mkdir -p /var/www
 WORKDIR /var/www
 copy app.js .
 EXPOSE $PORT
-CMD ["node", "/var/www/app.js"]
+CMD ["node", "app.js"]
 ```
 
 Build the image and tag it with v2

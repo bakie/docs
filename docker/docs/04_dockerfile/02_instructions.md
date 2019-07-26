@@ -87,7 +87,7 @@ RUN mkdir -p /var/www
 WORKDIR /var/www
 copy app.js .
 EXPOSE 3000
-CMD ["node", "/var/www/app.js"]
+CMD ["node", "app.js"]
 ```
 
 Build the image and tag it with v1
