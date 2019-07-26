@@ -22,3 +22,7 @@
     * [instructions](04_dockerfile/02_instructions.md)
     * [environment variables](04_dockerfile/03_environment_variables.md)
     * [build arguments](04_dockerfile/04_build_arguments.md)
+    * [non-privileged user](04_dockerfile/05_non-privileged_user.md)
+    * [volume instruction](04_dockerfile/06_volume_instruction.md)
+    * [command vs entrypoint](04_dockerfile/07_command_vs_entrypoint.md)
+    * [dockerignore](04_dockerfile/08_dockerignore.md)
