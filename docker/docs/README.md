@@ -31,3 +31,5 @@
     * [multi-stage builds](05_images/02_multi-stage_builds.md)
     * [tagging](05_images/03_tagging.md)
     * [docker hub](05_images/04_docker_hub.md)
+    * [history](05_images/04_history.md)
+    * [export import](05_images/06_export_import.md)
