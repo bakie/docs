@@ -26,3 +26,8 @@
     * [volume instruction](04_dockerfile/06_volume_instruction.md)
     * [command vs entrypoint](04_dockerfile/07_command_vs_entrypoint.md)
     * [dockerignore](04_dockerfile/08_dockerignore.md)
+* Images
+    * [building images](05_images/01_building_images.md)
+    * [multi-stage builds](05_images/02_multi-stage_builds.md)
+    * [tagging](05_images/03_tagging.md)
+    * [docker hub](05_images/04_docker_hub.md)
