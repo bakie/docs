@@ -33,3 +33,7 @@
     * [docker hub](05_images/04_docker_hub.md)
     * [history](05_images/04_history.md)
     * [export import](05_images/06_export_import.md)
+* Container management
+    * [inspecting container processes](06_container_management/01_inspecting_container_processes.md)
+    * [auto (re)start](06_container_management/02_auto_(re)start.md)
+    * [events](06_container_management/03_events.md)
