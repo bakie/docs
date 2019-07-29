@@ -37,3 +37,7 @@
     * [inspecting container processes](06_container_management/01_inspecting_container_processes.md)
     * [auto (re)start](06_container_management/02_auto_(re)start.md)
     * [events](06_container_management/03_events.md)
+* Docker-compose
+    * [commands](07_docker_compose/01_commands.md)
+    * [creating a compose file](07_docker_compose/02_creating_a_compose_file.md)
+    * [volumes and networking](07_docker_compose/03_volumes_and_networking.md)
