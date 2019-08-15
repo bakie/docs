@@ -41,3 +41,11 @@
     * [commands](07_docker_compose/01_commands.md)
     * [creating a compose file](07_docker_compose/02_creating_a_compose_file.md)
     * [volumes and networking](07_docker_compose/03_volumes_and_networking.md)
+* Swarm
+    * [overview](08_swarm/01_overview.md)
+    * [swarm mode](08_swarm/02_swarm_mode.md)
+    * [management](08_swarm/03_management.md)
+    * [services](08_swarm/04_services.md)
+    * [networks](08_swarm/05_networks.md)
+    * [volumes](06_container_management)
+    * [stacks](08_swarm/07_stacks.md)
