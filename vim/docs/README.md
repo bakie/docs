@@ -261,7 +261,7 @@ In Vim you can easily go to previous versions and back to later versions using t
 
 `:earlier {N}f` - Go to older text state {N} file writes before.
 
-`g+` - Go to newer text state.  With a count repeat that many times.
+`:g+` - Go to newer text state.  With a count repeat that many times.
 
 `:later {count}` - Go to newer text state {count} times.
 
