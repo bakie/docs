@@ -122,6 +122,8 @@ To go back to last line mode from insert mode, simply hit the [esc] key.
 
 `.` - repeat last command
 
+`:edit filename.txt` - Open the filename.txt file for editing
+
 ## Marking text (visual mode)
 `v` - start visual mode, mark lines, then do a command (e.g. yank)
 
