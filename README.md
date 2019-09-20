@@ -23,4 +23,5 @@ This repo holds all my commands that I use consisting of explanation and code sn
     * [aptitude](packaging_tools/docs/aptitude/README.md)
     * [dpkg](packaging_tools/docs/dpkg/README.md)
 * [Terraform](terraform/docs/README.md)
+* [tmux](tmux/docs/README.md)
 * [Vim](vim/docs/README.md)
