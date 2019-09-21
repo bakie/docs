@@ -127,7 +127,7 @@ To go back to last line mode from insert mode, simply hit the [esc] key.
 ## Marking text (visual mode)
 `v` - start visual mode, mark lines, then do a command (e.g. yank)
 
-`V` - start linewuse visual mode
+`V` - start linewise visual mode
 
 `o` - move to the other end of marked area
 
