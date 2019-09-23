@@ -196,7 +196,7 @@ To go back to last line mode from insert mode, simply hit the [esc] key.
 
 `ZQ` - same as `:q!`
 
-`:saveas filename.txt` - save the file as filename.txt in the current working directory. You can also pass an absolute path.
+`:saveas filename.txt` - save the file as filename.txt in the current working directory. You can also pass an absolute path or change directory using the `:cd path_of_directory`
 
 ## Executing external commands
 `:! ls -al ~` - run the command and show the results
