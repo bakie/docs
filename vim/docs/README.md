@@ -82,6 +82,10 @@ To go back to last line mode from insert mode, simply hit the [esc] key.
 
 `5G` - go to line 5
 
+`Ctrl + u` - scroll up half a screen
+
+`Ctrl + d` - scroll down half a screen
+
 ## Inserting/appending text
 `i` - insert before the cursor
 
