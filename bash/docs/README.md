@@ -14,4 +14,4 @@
     * [File](operators/file.md)
     * [String](operators/string.md)
 * [Loops](06_loops.md)
-
+* [Arrays](07_arrays.md)
