@@ -271,3 +271,16 @@ fi
 
 output: /tmp/foo.txt is not empty
 ```
+
+### Check is a file is a symlink
+```bash
+#!/usr/bin/env bash
+`touch /tmp/test.txt`
+`ln -s /etc/test.txt ~/test.txt`
+
+if [[ -L ~/test.txt ]]; then
+  echo "~/test.txt is a symlink"
+fi
+
+output: ~/test.txt is a symlink
+```

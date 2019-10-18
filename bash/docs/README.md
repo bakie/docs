@@ -41,8 +41,10 @@
         * [Check if file is a directory](#check-if-file-is-a-directory)
         * [Check if a file exists](#check-if-a-file-exists)
         * [Check if a file exists with wildcard](#check-if-a-file-exists-with-wildcard)
-        * [Check is a file is not empty](#check-is-a-file-is-not-empty)
+        * [Check if a file is not empty](#check-is-a-file-is-not-empty)
+        * [Check if a fle is a symlink](#check-if-a-file-is-a-symlink)
 * [Loops](#loops)
     * [For loop](#for-loop)
     * [While loop](#while-loop)
     * [Until loop](#until-loop)
+

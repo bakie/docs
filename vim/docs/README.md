@@ -17,6 +17,7 @@
 * [Executing external commands](#executing-external-commands)
 * [Buffers](#buffers-working-with-multiple-files)
 * [Tabs](#tabs)
+* [Text states](#text-states)
 
 ## Modes
 ### Command mode
@@ -81,6 +82,10 @@ To go back to last line mode from insert mode, simply hit the [esc] key.
 
 `5G` - go to line 5
 
+`Ctrl + u` - scroll up half a screen
+
+`Ctrl + d` - scroll down half a screen
+
 ## Inserting/appending text
 `i` - insert before the cursor
 
@@ -121,10 +126,12 @@ To go back to last line mode from insert mode, simply hit the [esc] key.
 
 `.` - repeat last command
 
+`:edit filename.txt` - Open the filename.txt file for editing
+
 ## Marking text (visual mode)
 `v` - start visual mode, mark lines, then do a command (e.g. yank)
 
-`V` - start linewuse visual mode
+`V` - start linewise visual mode
 
 `o` - move to the other end of marked area
 
@@ -193,7 +200,7 @@ To go back to last line mode from insert mode, simply hit the [esc] key.
 
 `ZQ` - same as `:q!`
 
-`:saveas filename.txt` - save the file as filename.txt in the current working directory. You can also pass an absolute path.
+`:saveas filename.txt` - save the file as filename.txt in the current working directory. You can also pass an absolute path or change directory using the `:cd path_of_directory`
 
 ## Executing external commands
 `:! ls -al ~` - run the command and show the results
@@ -248,3 +255,22 @@ In this case it will sort it. `:5,10 ! ls -l /home` will replace the lines with 
 `:tabo` - close all tabs except the current one
 
 `:tabdo command` - run the command on all tabs (e.g. `:tabdo -q` closes all opened tabs)
+
+## Text states
+In Vim you can easily go to previous versions and back to later versions using the `:earlier` and `:later` commands.
+
+`:g-` - Go to older text state.  With a count repeat that many times.
+
+`:earlier {count}` - Go to older text state {count} times.
+
+`:earlier {N}s/m/h/d` - Go to older text state about {N} seconds/minutes/hours/days before.
+
+`:earlier {N}f` - Go to older text state {N} file writes before.
+
+`:g+` - Go to newer text state.  With a count repeat that many times.
+
+`:later {count}` - Go to newer text state {count} times.
+
+`:later {N}s/m/h/d` - Go to newer text state about {N} seconds/minutes/hours/days later.
+
+`:later {N}f` - Go to newer text state {N} file writes later.

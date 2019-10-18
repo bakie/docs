@@ -11,6 +11,7 @@
     * [openssl](openssl/README.md)
     * [ps](ps/README.md)
     * [ssh](ssh/README.md)
+    * [ssh-keyscan](ssh-keyscan/README.md)
     * [tar](tar/README.md)
     * [uname](uname/README.md)
     * [useradd](useradd/README.md)
