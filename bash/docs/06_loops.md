@@ -1,4 +1,9 @@
 # Loops
+
+* [For loop](#for-loop)
+* [While loop](#while-loop)
+* [Until loop](#until-loop)
+
 ### For loop
 ```bash
 #!/usr/bin/env bash
