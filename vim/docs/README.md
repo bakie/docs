@@ -239,6 +239,8 @@ In this case it will sort it. `:5,10 ! ls -l /home` will replace the lines with 
 
 `:f` - show the characteristics of the file currently editing
 
+`:only` - close all windows(splits) except the current one
+
 ## Tabs
 `:tabnew filename` - open a file in a new tab
 
@@ -252,7 +254,11 @@ In this case it will sort it. `:5,10 ! ls -l /home` will replace the lines with 
 
 `:tabc` - close the current tab and all its windows
 
-`:tabo` - close all tabs except the current one
+`:tabclose` - same as tabc
+
+`:tabo` - close all tabs except the current one.
+
+`:tabonly` - same as tabo
 
 `:tabdo command` - run the command on all tabs (e.g. `:tabdo -q` closes all opened tabs)
 
