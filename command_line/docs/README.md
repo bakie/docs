@@ -22,6 +22,7 @@
 * [Globbing](#globbing)
 * [Quoting](#quoting)
 * [Sticky bit](#sticky-bit)
+* [Become a user/Run command as user](#become-a-user-or-run-command-as-user)
 
 ## Single commands
 `echo` - print what follows on to the screen (e.g. echo $PATH)
@@ -131,4 +132,20 @@ Apply the sticky bit to a folder
 ```
 chmod o+t /path/to/directory
 chmod 1777 /path/to/directory
+```
+
+## Become a user or run command as user
+Use su (substitute user) to become a other user. For instance:
+```
+$ sudo su - targetuser
+$ sudo su - (This will make you the root user)
+```
+Note: the dash (-) will adopt the environment of the user and you will be places in the home dir of the user. You can also just run `sudo su`.
+To become a system user you need to use the -s option with /bin/bash. A system user has /bin/false or /sbin/nologin as its shell. So if you try the above method you will not be able to login.
+```
+$ sudo su - targetuser -s /bin/bash
+```
+To run a command as another user, us the -c option
+```
+$ sudo su - targetuser -c "ls -l"
 ```
