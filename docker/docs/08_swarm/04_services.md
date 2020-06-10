@@ -7,6 +7,7 @@
 
 ## Working with services
 Docker service commands:
+
 `create` - Creates a new service
 
 `inspect` - Displays detailed information on one or more services
