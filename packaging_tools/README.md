@@ -1,3 +1,5 @@
-# Packaging Tools
+# Packaging Tools docs
 
-* [docs](docs/README.md)
+* [apt](apt/README.md)
+* [aptitude](aptitude/README.md)
+* [dpkg](dpkg/README.md)
