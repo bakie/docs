@@ -1,8 +1,13 @@
 # Docs
 
-This repo holds all my commands that I use consisting of explanation and code snippets.
+This repo holds all my documentation. From new programming languages I am learning to command line tools , 
+commands that I often use consisting of explanation, ...
 
-* [Bash](bash/README.md)
+These will not be kept up-to-date with the latest version. For example, the explanation for Terraform is from 
+when I started learning it and does not contain all the latest features.
+
+* Programming languages
+  * [Bash](programming_languages/bash/README.md)
 * [Command line](command_line/README.md)
     * [cut](command_line/cut/README.md)
     * [find](command_line/find/README.md)
