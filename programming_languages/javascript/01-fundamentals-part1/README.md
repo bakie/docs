@@ -10,8 +10,10 @@
 * [Type Conversion and Coercion](#type-conversion-and-coercion)
 * [Truthy and Falsy Values](#thruthy-and-falsy-values)
 * [Equality Operators: == vs. ===](#equality-operators---vs-)
-* [Boolean Logic](#boolean-logic)
 * [Logical Operators](#logical-operators)
+* [Switch Statement](#switch-statement)
+* [Statements and Expressions](#statements-and-expressions)
+* [The Conditional (Ternary) Operator](#the-conditional-ternary-operator)
 
 ## Data Types
 7 primitive types
@@ -119,7 +121,47 @@ Everything else is a thruthy values are the opposite. Values that will become tr
 '18' == 18  // true
 ```
 
-## Boolean Logic
+## Logical Operators
 The and (&&), or (||) & not (!) operators
 
-## Logical Operators
+## Switch Statement
+```
+const day = 'monday';
+
+switch(day) {
+    case 'monday':
+      console.log('Day is a Monday');
+      console.log('this will also be printed in the case it is a Monday');
+      break;
+    case 'tuesday':
+      console.log('Day is a Tuesday');
+      break;
+    case 'wednesday':
+    case 'thursday':
+      console.log('Day is a Wednesday of Thursday')
+      break;
+    case 'friday':
+      console.log('Day is a Friday');
+      break;
+    case 'saturday':
+    case 'sunday':
+      console.log('It is weekend');
+      break;
+    default:
+      console.log('Day is not known');
+}
+```
+The break keyword makes the code stop executing. If we do not set the break in the monday case, it will print until 'Day is a Tuesday'.
+
+## Statements and Expressions
+Expression is a piece of code that produces a value. For example `3 + 4`, `1991`, `true && false && !false`, ...
+
+Statement is a bigger piece of code that is executed and that does not produce a value on itself. For example the if/else statement
+
+## The Conditional (Ternary) Operator
+```
+const age = 23;
+age >= 18 ? console.log('You are older than 18') : console.log('You are younger than 18);
+
+const older = age >= 18 ? true : false;
+```
