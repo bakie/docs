@@ -4,6 +4,9 @@
 * [Strict Mode](#strict-mode)
 * [Functions](#functions)
 * [Function Declarations vs. Expressions](#function-declarations-vs-expressions)
+* [Arrow Functions](#arrow-functions)
+* [Functions Calling Other Functions](#functions-calling-other-functions)
+* [Reviewing Functions](#reviewing-functions)
 
 ## Strict Mode
 A way to opt in to a restricted variant of JavaScript. Strict mode forbids us to do certain things and creates visible errors in the development console.
