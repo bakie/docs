@@ -40,7 +40,7 @@ const netherlandsPercentage3 = percentageOfWorld3(17);
 const germanyPercentage3 = percentageOfWorld3(84);
 console.log(belgiumPercentage3, netherlandsPercentage3, germanyPercentage3);
 
-// lecture Functions Calling Other Functions
+// Lecture Functions Calling Other Functions
 console.log('LECTURE FUNCTIONS CALLING OTHER FUNCTIONS');
 const describePopulation = function (country, population) {
     return `${country} has ${population} million people, which is about ${percentageOfWorld1(population)}% of the world`;
@@ -52,3 +52,15 @@ const germanyFunc = describePopulation('Germany', 84, 'Berlin');
 console.log(belgiumFunc);
 console.log(netherlandsFunc);
 console.log(germanyFunc);
+
+// Lecture Introduction to Arrays
+console.log('LECTURE INTRODUCTION TO ARRAYS');
+const populations = [11, 17, 84, 142];
+console.log(populations.length === 4);
+const percentages = [
+    percentageOfWorld1(populations[0]),
+    percentageOfWorld1(populations[1]),
+    percentageOfWorld1(populations[2]),
+    percentageOfWorld1(populations[3])
+];
+console.log(percentages);

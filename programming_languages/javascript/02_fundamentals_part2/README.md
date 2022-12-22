@@ -7,6 +7,8 @@
 * [Arrow Functions](#arrow-functions)
 * [Functions Calling Other Functions](#functions-calling-other-functions)
 * [Reviewing Functions](#reviewing-functions)
+* [Introduction to Arrays](#introduction-to-arrays)
+* [Basic Array Operations (Methods)](#basic-array-operations-methods)
 
 ## Strict Mode
 A way to opt in to a restricted variant of JavaScript. Strict mode forbids us to do certain things and creates visible errors in the development console.
@@ -96,3 +98,45 @@ Three different ways of writing functions, but they all work in a similar way: r
 Anatomy of a function:  
 ![Anatomy_of_a_function](anatomy_of_a_function.png)
 
+## Introduction to Arrays
+```
+const friends = ['friend1', 'friend2', 'friend3'];
+console.log(friends); // ["friend1", "friend2", "friend3"]
+console.log(friends[0]); // "friend1"
+console.log(friends[1]); // "friend2"
+friends[2] = 'friendX';
+console.log(friends); //["friend1", "friend2", "friendX"]
+
+const years = new Array(1901, 1990, 2000, 2020);
+console.log(years);
+console.log(years.length); //4
+```
+
+## Basic Array Operations (Methods)
+```
+const friends = ['friend1', 'friend2', 'friend3'];
+console.log(friends); // ["friend1", "friend2", "friend3"]
+
+// Add element to the end of the array
+friends.push('friend4); // push returns the length of the array
+console.log(friends); // ["friend1", "friend2", "friend3", "friend4"]
+
+// Add element to the beginning of the array
+friends.unshift('friend0'); // unshift returns the length of the array
+console.log(friends); // ["friend0", "friend1", "friend2", "friend3", "friend4"]
+
+// Remove the last element
+friends.pop(); // pop returns the removed element
+console.log(friends); // ["friend0", "friend1", "friend2", "friend3"]
+
+// Remove the first element
+friends.shift(); // unshift returns the removed element
+console.log(friends); // ["friend1", "friend2", "friend3"]
+
+console.log(friends.indexOf('friend3')); // 2
+console.log(friends.indexOf('friendX)); // -1
+
+//ES6 method
+console.log(friends.includes('friend2')); // true
+console.log(friends.includes('friendX')); // false
+```
