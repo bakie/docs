@@ -41,3 +41,41 @@ const total = [
     bills[2] + tips[2]
 ]
 console.log(total);
+
+// Coding Challenge #3
+console.log('CODING CHALLENGE #3');
+const mark = {
+    firstName: 'Mark',
+    lastName: 'Miller',
+    fullName: function() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+};
+
+const john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    fullName: function() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+};
+
+mark.calcBMI();
+john.calcBMI();
+if (mark.bmi > john.bmi) {
+    console.log(`${mark.fullName()}'s BMI (${mark.bmi}) is higher than ${john.fullName()}'s BMI (${john.bmi})`)
+} else if (john.bmi > mark.bmi) {
+    console.log(`${john.fullName()}'s BMI (${john.bmi}) is higher than ${mark.fullName()}'s BMI (${mark.bmi})`)
+}

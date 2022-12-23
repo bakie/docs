@@ -64,3 +64,48 @@ const percentages = [
     percentageOfWorld1(populations[3])
 ];
 console.log(percentages);
+
+// Lecture Basic Array Operations (Methods)
+console.log('LECTURE BASIC ARRAY OPERATIONS (METHODS)');
+const neighbours = ['Netherlands', 'Germany', 'France', 'Luxemburg'];
+console.log(neighbours);
+neighbours.push('Utopia');
+console.log(neighbours);
+neighbours.pop();
+console.log(neighbours);
+console.log(`Probably ${neighbours.includes('Germany') ? '' : 'not '}a central European country.`);
+neighbours[neighbours.indexOf('Luxemburg')] = 'Luxemburg (country)';
+console.log(neighbours);
+
+// Lecture Introduction to Objects
+console.log('LECTURE INTRODUCTION TO OBJECTS');
+const myCountry = {
+    country: 'Belgium',
+    capital: 'Brussel',
+    language: 'Dutch',
+    population: 11,
+    neighbours: ['Netherlands', 'Germany', 'France', 'Luxemburg'],
+    //Added in Lecture Object Methods
+    describe: function() {
+        return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`;
+    },
+    checkIsland: function() {
+        this.isIsland = this.neighbours.length === 0;
+        return this.isIsland;
+    }
+}
+console.log(myCountry);
+
+// Lecture Dot vs. Bracket Notation
+console.log('LECTURE DOT VS. BRACKET NOTATION');
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`);
+myCountry.population += 2;
+console.log(myCountry);
+myCountry['population'] -= 2;
+console.log(myCountry);
+
+// Lecture Object Methods
+console.log('LECTURE OBJECT METHODS');
+console.log(myCountry.describe());
+console.log(myCountry.checkIsland());
+console.log(myCountry.isIsland);

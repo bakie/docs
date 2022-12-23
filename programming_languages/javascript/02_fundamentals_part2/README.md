@@ -9,6 +9,9 @@
 * [Reviewing Functions](#reviewing-functions)
 * [Introduction to Arrays](#introduction-to-arrays)
 * [Basic Array Operations (Methods)](#basic-array-operations-methods)
+* [Introduction to Objects](#introduction-to-objects)
+* [Dot vs. Bracket Notations](#dot-vs-bracket-notation)
+* [Object Methods](#object-methods)
 
 ## Strict Mode
 A way to opt in to a restricted variant of JavaScript. Strict mode forbids us to do certain things and creates visible errors in the development console.
@@ -139,4 +142,97 @@ console.log(friends.indexOf('friendX)); // -1
 //ES6 method
 console.log(friends.includes('friend2')); // true
 console.log(friends.includes('friendX')); // false
+```
+
+## Introduction to Objects
+In objects we define key-value pairs. There are multiple ways to creating objects. Using the curly braces is called the object literal syntax. Because we are literally writing the entire object content.
+```
+// the object myObject has 5 properties (firstName, lastName, ...)
+const myObject = {
+    firstName: 'first',
+    lastName: 'last'
+    age: 2023 - 1901,
+    job: 'developer',
+    friends: ['friend1', 'friend2', 'friend3']
+}
+```
+
+## Dot vs. Bracket Notation
+First way of getting a property from an object is by using the dot notation.
+```
+const myObject = {
+    firstName: 'first',
+    lastName: 'last',
+    age: 2023 - 1901,
+    job: 'developer',
+    friends: ['friend1', 'friend2', 'friend3']
+}
+console.log(myObject.lastName); // last
+console.log(myObject.something); // undefined
+```
+
+We can do the same thing using the bracket notation. In the brakcet notation we can put any expression we like. We can compute it from any operation.
+```
+console.log(myObject['lastName']); // last
+console.log(myObject['something']); // undefined
+
+const nameKey = 'Name';
+console.log(myObject['first' + nameKey]); // first
+console.log(myObject['last' + nameKey]); // last
+```
+
+to add new properties using the dot and bracket notation
+```
+myObject.location = 'somewhere';
+myObject['street'] = 'streetX';
+```
+
+## Object methods
+Objects can hold different types of data. They can hold arrays and even an object inside an object.  
+Functions are just a type of a value. And if a function is just a value, we can create a key/value pair, where the value is a function.  
+Any function that is attached to a object is called a method.  
+```
+const myObject = {
+    firstName: 'first',
+    lastName: 'last',
+    birthYear: 1901,
+    job: 'developer',
+    friends: ['friend1', 'friend2', 'friend3'],
+    calcAge: function(birthYear) {
+        return 2023 - birthYear;
+    }
+}
+
+console.log(myObject.calcAge(1901)); // 122
+console.log(myObject['calcAge'](1901)); // 122
+```
+We can read the birthYear from the object itself using the `this` keyword. The `this` keyword is equal to the object calling the method.
+```
+const myObject = {
+    firstName: 'first',
+    lastName: 'last',
+    birthYear: 1901,
+    job: 'developer',
+    friends: ['friend1', 'friend2', 'friend3'],
+    calcAge: function() {
+        return 2023 - this.birthYear;
+    }
+}
+console.log(myObject.calcAge()); // 122
+```
+Instead of computing the age every time we call the calcAge function, we can store it in the object itself.
+```
+const myObject = {
+    firstName: 'first',
+    lastName: 'last',
+    birthYear: 1901,
+    job: 'developer',
+    friends: ['friend1', 'friend2', 'friend3'],
+    calcAge: function() {
+        this.age = 2023 - this.birthYear;
+        return this.age;
+    }
+}
+console.log(myObject.calcAge()); // 122
+console.log(myObject.age); // 122
 ```
