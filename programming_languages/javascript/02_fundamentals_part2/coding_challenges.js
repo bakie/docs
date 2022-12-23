@@ -79,3 +79,27 @@ if (mark.bmi > john.bmi) {
 } else if (john.bmi > mark.bmi) {
     console.log(`${john.fullName()}'s BMI (${john.bmi}) is higher than ${mark.fullName()}'s BMI (${mark.bmi})`)
 }
+
+// Coding Challenge #4
+console.log('CODING CHALLENGE #4');
+const bills2 = [22, 295,176,440,37,105,10,1100,86,52];
+const tips2 = [];
+const totals2 = [];
+for (let i = 0; i < bills2.length; i++) {
+    const tip = calcTip(bills2[i]);
+    tips2.push(tip);
+    totals2.push(tip + bills2[i]);
+}
+console.log(bills2);
+console.log(tips2);
+console.log(totals2);
+
+// Bonus
+const calcAverageFunc = function(averages) {
+    let sum = 0;
+    for (let i = 0; i < averages.length; i++) {
+        sum += averages[i];
+    }
+    return sum / averages.length;
+}
+console.log(calcAverageFunc(totals2));

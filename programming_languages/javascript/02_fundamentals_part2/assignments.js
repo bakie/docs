@@ -109,3 +109,40 @@ console.log('LECTURE OBJECT METHODS');
 console.log(myCountry.describe());
 console.log(myCountry.checkIsland());
 console.log(myCountry.isIsland);
+
+// Lecture Iteration: The for Loop
+console.log('LECTURE ITERATION THE FOR LOOP');
+for (let i = 1; i <= 5; i++) {
+    console.log(`Voter number ${i} is currently voring.`);
+}
+
+// Lecture Looping Arrays, Breaking and Continuing
+console.log('LECTURE LOOPING ARRAYS, BREAKING AND CONTINUING');
+const percentagesLoop = [];
+for (let i = 0; i < populations.length; i++) {
+    percentagesLoop.push(percentageOfWorld1(populations[i]));
+}
+console.log(percentages);
+console.log(percentagesLoop);
+
+// Lecture Looping Backwards and Loops in Loops
+console.log('LECTURE LOOPING BACKWARDS AND LOOPS IN LOOPS');
+const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden','Russia']];
+for(let i = 0; i < listOfNeighbours.length; i++) {
+    for(let j = 0; j < listOfNeighbours[i].length; j++) {
+        console.log(`Neighbour: ${listOfNeighbours[i][j]}`);
+    }
+}
+
+// Lecture The while loop
+console.log("LECTURE THE WHILE LOOP");
+const percentagesWhile = [];
+let i = 0;
+while(i < populations.length) {
+    percentagesWhile.push(percentageOfWorld1(populations[i]));
+    i++;
+
+}
+console.log(percentages);
+console.log(percentagesLoop);
+console.log(percentagesWhile);

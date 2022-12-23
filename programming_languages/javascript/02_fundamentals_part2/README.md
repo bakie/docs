@@ -12,6 +12,10 @@
 * [Introduction to Objects](#introduction-to-objects)
 * [Dot vs. Bracket Notations](#dot-vs-bracket-notation)
 * [Object Methods](#object-methods)
+* [Iteration: The for Loop](#iteration-the-for-loop)
+* [Looping Arrays, Breaking and Continuing](#looping-arrays-breaking-and-continuing)
+* [Looping Backwards and Loops in Loops](#looping-backwards-and-loops-in-loops)
+* [The while loop](#the-while-loop)
 
 ## Strict Mode
 A way to opt in to a restricted variant of JavaScript. Strict mode forbids us to do certain things and creates visible errors in the development console.
@@ -235,4 +239,111 @@ const myObject = {
 }
 console.log(myObject.calcAge()); // 122
 console.log(myObject.age); // 122
+```
+
+## Iteration: The for Loop
+You need to use let because the value will change during the loop! Otherwise you get an error `invalid assignment to const 'i'`.
+```
+for(let i = 0; i <= 3; i++) {
+    console.log(`looping loop ${i}`);
+}
+// looping loop 0
+// looping loop 1
+// looping loop 2
+// looping loop 3
+```
+
+## Looping Arrays, Breaking and Continuing
+```
+const myArray = [
+    'value1',
+    'value2',
+    11,
+    'value3',
+    22,
+    'value4'
+]
+
+for(let i = 0; i < myArray.length; i++) {
+    console.log(myArray[i]);
+}
+// value1
+// value2
+// 11
+// value3
+// 22
+// value4
+```
+continue: exit the current iteration of the loop an continue to the next one
+```
+// Only show string values
+for(let i = 0; i < myArray.length; i++) {
+    if(typeof myArray[i] !== 'string') continue;
+    console.log(myArray[i]);
+}
+// value1
+// value2
+// value3
+// value4
+```
+break: terminate the whole loop
+```
+// stop when we find a number
+for(let i = 0; i < myArray.length; i++) {
+    if(typeof myArray[i] === 'number') break;
+    console.log(myArray[i]);
+}
+// value1
+// value2
+```
+
+## Looping Backwards and Loops in Loops
+```
+const myArray = [
+    'value1',
+    'value2',
+    11,
+    'value3',
+    22,
+    'value4'
+]
+
+for(let i = myArray.length-1; i >= 0; i--) {
+    console.log(myArray[i]);
+}
+// value4
+// 22
+// value3
+// 11
+// value2
+// value1
+```
+
+```
+for(let i = 0; i < 2; i++) {
+    console.log(`i value is ${i}`);
+    for(let j = 0; j < 2; j++) {
+        console.log(`j value is ${j}`);
+    }
+}
+// i value is 0
+// j value is 0
+// j value is 1
+// i value is 1 
+// j value is 0
+// j value is 1
+```
+
+## The while loop
+```
+let i = 1;
+while(i <= 5) {
+    console.log(`i value is ${i}`);
+    i++;
+}
+// i value is 1
+// i value is 2
+// i value is 3
+// i value is 4
+// i value is 5
 ```
