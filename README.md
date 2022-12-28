@@ -8,6 +8,7 @@ when I started learning it and does not contain all the latest features.
 
 * Programming languages
   * [Bash](programming_languages/bash/README.md)
+  * [JavaScript](programming_languages/javascript/README.md)
 * [Command line](command_line/README.md)
     * [cut](command_line/cut/README.md)
     * [find](command_line/find/README.md)
