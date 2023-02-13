@@ -6,6 +6,7 @@
 * [The Spread Operator (...)](#the-spread-operator---)
 * [Rest Pattern and Parameters](#rest-pattern-and-parameters)
 * [Short Circuiting (&& and ||)](#short-circuiting---and--)
+* [The Nullish Coalescing Operator (??)](#the-nullish-coalescing-operator---)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -242,4 +243,17 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Hello
 // Note that if numbGuests = 0 it will set the guests to 10 because 0 if a falsy value.
 const guests = restaurant.numGuests || 10;
 console.log(guests); // 10
+```
+
+## The Nullish Coalescing Operator (??)
+Introduced in ES2020. Works with the concept of nullish values instead of falsy values.  
+Nullish values are null and undefined. It does not include 0 or '' (empty string).
+```
+restaurant.numGuests = 0;
+const guests = restaurant.numbGuests || 10;
+console.log(guests); // 10
+
+// Nullish coalescing
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect); // 0
 ```
