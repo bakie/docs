@@ -3,6 +3,7 @@
 ## Table of contents
 * [Destructuring Arrays](#destructuring-arrays)
 * [Destructuring Objects](#destructuring-objects)
+* [The Spread Operator (...)](#the-spread-operator---)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -132,5 +133,44 @@ restaurant.orderDelivery({
   mainIndex: 2,
   starterIndex: 2,
 })
+```
 
+## The Spread Operator (...)
+Expand an array into all its elements. Unpacking all array elements at once.  
+Difference with destructuring: The spread operator takes the elements from the array and doesn't create new variables. We can only use it in places were we write values separated by comma's
+```
+// Adding 1 and 2 to the beginning of the array
+const arr = [7, 8, 9];
+// Without spread operator
+const baddNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr); // [1, 2, 7, 8, 9]
+// With spread operator
+const newArr = [1, 2, ...arr];
+console.log(newArr); // [1, 2, 7, 8, 9]
+// Logs the individual elements
+console.log(...newArr); // 1 2 7 8 9
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu); // ["Pizza", "Pasta", "Risotto", "Gnocci"]
+
+// Shallow copy (copy array)
+const mainMenuCopy = [...restaurant.mainMenu];
+// Join 2 arrays (or more)
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+const str = 'spread';
+const letters = [...str, ' ', 's'];
+console.log(letters); // ["s", "p", "r", "e", "a", "d", " ", "s"]
+
+orderPasta: function(ingredient1, ingredient2, ingredient3) {
+  console.log(ingredient1, ingredient2, ingredient3)
+}
+const ingredients = ['a', 'b', 'c'];
+// Old way
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+// Spread operator
+restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = {foundedIn: 1999, ...restaurant, founder: 'Guiseppe'};
+const restaurantCopy = { ...restaurant };
 ```
