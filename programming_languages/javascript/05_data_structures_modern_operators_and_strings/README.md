@@ -4,6 +4,7 @@
 * [Destructuring Arrays](#destructuring-arrays)
 * [Destructuring Objects](#destructuring-objects)
 * [The Spread Operator (...)](#the-spread-operator---)
+* [Rest Pattern and Parameters](#rest-pattern-and-parameters)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -173,4 +174,44 @@ restaurant.orderPasta(...ingredients);
 // Objects
 const newRestaurant = {foundedIn: 1999, ...restaurant, founder: 'Guiseppe'};
 const restaurantCopy = { ...restaurant };
+```
+
+## Rest Pattern and Parameters
+Rest patterns looks like the spread operator. Uses the same syntax ..., but does the opposite of the spread operator.  
+It packs elements into an array.
+```
+// Spread, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+// Rest, because on the LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(1, b, others); // 1 2 [3, 4, 5]
+
+const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, risotto, otherFood'); // Pizza Risotto ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"]
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays); // {thu: {...}, fri: {...}}
+
+// Rest parameters
+const add = function(...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+}
+add(2, 3); // 5
+add(5, 3, 7, 2); // 17
+add(1, 2, 3, 4, 5, 6, 7); // 28
+// Using the spread operator
+const x = [23, 5, 7];
+add(...x); // 35
+
+orderPizza: function(mainIngredient, ...otherIngredients) {
+  console.log(mainIngredient, otherIngredients);
+}
+restaurant.orderPizza('ingredient1', 'ingredient2', 'ingredient3'); // ingredients1 ["ingredient2", "ingredient3"]
+restaurant.orderPizza('ingredient1'); // ingredient1 []
 ```
