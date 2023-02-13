@@ -5,6 +5,7 @@
 * [Destructuring Objects](#destructuring-objects)
 * [The Spread Operator (...)](#the-spread-operator---)
 * [Rest Pattern and Parameters](#rest-pattern-and-parameters)
+* [Short Circuiting (&& and ||)](#short-circuiting---and--)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -214,4 +215,31 @@ orderPizza: function(mainIngredient, ...otherIngredients) {
 }
 restaurant.orderPizza('ingredient1', 'ingredient2', 'ingredient3'); // ingredients1 ["ingredient2", "ingredient3"]
 restaurant.orderPizza('ingredient1'); // ingredient1 []
+```
+
+## Short Circuiting (&& and ||)
+Logical operators:
+* can use any data type
+* can return any data type
+* do short-circuiting
+
+The AND operator: it will short-circuit if the value is a falsy value, and it will return that value
+```
+console.log(0 && 'Me'); // 0
+console.log(7 && 'Me'); // Me
+console.log('Hello' && 23 && null && 'Me'); // null
+```
+
+The OR operator: it will short-circuit if the value is a truthy value, and it will return that value.
+```
+console.log(3 || 'Me'); // 3
+console.log('' || 'Me'); // Me
+console.log(true || 0); true
+console.log(undefined || null); // undefined
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Hello
+
+// Setting a default value without using if/else or ternary operator.
+// Note that if numbGuests = 0 it will set the guests to 10 because 0 if a falsy value.
+const guests = restaurant.numGuests || 10;
+console.log(guests); // 10
 ```
