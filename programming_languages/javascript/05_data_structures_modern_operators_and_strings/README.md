@@ -7,6 +7,7 @@
 * [Rest Pattern and Parameters](#rest-pattern-and-parameters)
 * [Short Circuiting (&& and ||)](#short-circuiting---and--)
 * [The Nullish Coalescing Operator (??)](#the-nullish-coalescing-operator---)
+* [Logical Assignment Operators](#logical-assignment-operators)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -256,4 +257,38 @@ console.log(guests); // 10
 // Nullish coalescing
 const guestsCorrect = restaurant.numGuests ?? 10;
 console.log(guestsCorrect); // 0
+```
+
+## Logical Assignment Operators
+Introduced in ES2021.  
+OR assignment operator: Assigns a value to a variable if that variable is currently falsy.  
+Nullish assignment operator: Assigns a value to a variable if that variable is currently nullish.  
+AND assignment operator: Assigns a value to a variable if that variable is currently truthy.
+```
+const rest1 = {
+  name: 'Rest1',
+  numGuests: 20,
+}
+const rest2 = {
+  name: 'Rest2',
+  owner: 'Me',
+}
+
+// OR assignment operator
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+console.log(rest1); // { name: 'Rest1', numGuests: 20}
+console.log(rest2); // { name: 'Rest2', owner: 'Me', numGuests: 10}
+
+// Nullish assignment operator
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+console.log(rest1); // { name: 'Rest1', numGuests: 20}
+console.log(rest2); // { name: 'Rest2', owner: 'Me', numGuests: 10}
+
+// AND assignment operator
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+console.log(rest1); // { name: 'Rest1', numGuests: 20}
+console.log(rest2); // { name: 'Rest2', owner: '<ANONYMOUS>', numGuests: 10}
 ```
