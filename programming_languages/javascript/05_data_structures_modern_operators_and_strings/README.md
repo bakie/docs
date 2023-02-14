@@ -11,6 +11,7 @@
 * [Looping Arrays: The for-of Loop](#looping-arrays--the-for-of-loop)
 * [Enhanced Object Literals](#enhanced-object-literals)
 * [Optional Chaining (?.)](#optional-chaining---)
+* [Looping Objects: Object Keys, Values and Entries](#looping-objects--object-keys-values-and-entries)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -414,4 +415,36 @@ const users = [{ name: 'Me' }]
 console.log(users[0]?.name ?? 'User array empty'); // Me
 const emptyUsers = []
 console.log(emptyUsers[0]?.name ?? 'User array empty'); // User array empty
+```
+
+## Looping Objects: Object Keys, Values and Entries
+Objects are not iterables, but we can loop over them in an indirect way.
+```
+const openingHours = {
+    thu: {
+        open: 12,
+        close: 22,
+    },
+    fri: {
+        open: 11,
+        close: 23,
+    },
+}
+// Looping over property names (Keys)
+for (const day of Object.keys(openingHours)) {
+    console.log(day); // thu
+                      // fri
+}
+
+// Looping over property values
+for (const dayValue of Object.values(openingHours)) {
+    console.log(dayValue); // {open: 12, close: 22}
+                           // {open: 11, close: 23}
+}
+
+// Looping over the entries (name (key) + value together)
+for (const [key, value] of Object.entries(openingHours)) {
+    console.log(key, value);  // thu, {open: 12, close: 22}
+                              // fri, {open: 11, close: 23}
+}
 ```
