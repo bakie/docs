@@ -14,6 +14,7 @@
 * [Looping Objects: Object Keys, Values and Entries](#looping-objects--object-keys-values-and-entries)
 * [Sets](#sets)
 * [Maps: Fundamentals](#maps--fundamentals)
+* [Maps: Iteration](#maps--iteration)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -501,4 +502,38 @@ console.log(restMap.get([1,2])); // undefined. The two arrays are not the same o
 
 restMap.clear();
 console.log(restMap); // Map(0)
+
+// Convert object to map
+const obj = {
+    first: {
+        yes: "Hello from first",
+        no: "No hello from first"
+    },
+    second: {
+        yes: "Hello from second",
+        no: "No hello from second",
+    }
+}
+const objMap = new Map(Object.entries(obj));
+console.log(objMap); // { first → {yes: "Hello from first", no: "No hello from first"}, second → {yes: "Hello from second", no: "No hello from second"} }
+
+// Convert map to array
+console.log([...objMap]); //Array [ ["first", {...}], ["second", {...}] ]
+```
+
+## Maps: Iteration
+```
+const restMap = new Map([['firstArray', 'firstValue'], ['secondArray', 'secondValue'], ['thirdArray', 'thirdValue']]);
+console.log(restMap); //{ firstArray → "firstValue", secondArray → "secondValue", thirdArray → "thirdValue" }
+
+for (const [key,value] of restMap) {
+    console.log(key);
+    console.log(value);
+}
+//firstArray
+//firstValue
+//secondArray
+//secondValue
+//thirdArray
+//thirdValue
 ```
