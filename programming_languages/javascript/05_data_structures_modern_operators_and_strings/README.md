@@ -9,6 +9,7 @@
 * [The Nullish Coalescing Operator (??)](#the-nullish-coalescing-operator---)
 * [Logical Assignment Operators](#logical-assignment-operators)
 * [Looping Arrays: The for-of Loop](#looping-arrays--the-for-of-loop)
+* [Enhanced Object Literals](#enhanced-object-literals)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -310,5 +311,54 @@ for (const item of menu.entries()) {
 for (const [i, el] of menu.entries()) {
     console.log(i);     // 1            // 2            // ...
     console.log(el);    // Focaccia     // Bruschetta   // ...
+}
+```
+
+## Enhanced Object Literals
+Introduced in ES6.  
+three enhancements: 
+* including properties
+* methods
+* compute property names
+```
+// Including properties
+const openingHours = {
+    thu: {
+        open: 12,
+        close: 22,
+    },
+}
+const restaurant = {
+    name: 'Restaurant',
+    // Before
+    openingHours: openingHours,
+    // ES6 enhanced object literals
+    openingHours,
+}
+
+// Methods
+const restaurant = {
+    name: 'Restaurant'
+    // Before
+    order: function(food1, food2) {
+        console.log(food1, food2);
+    }
+    // ES6 enhanced object literals
+    order(food1, food2) {
+        console.log(food1, food2);
+    }
+}
+
+// Computer property names
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+    [weekdays[3]]: {
+        open: 12,
+        close: 22,
+    },
+    [`day-${2 + 4}`]: {
+        open: 11,
+        close: 24,
+    }
 }
 ```
