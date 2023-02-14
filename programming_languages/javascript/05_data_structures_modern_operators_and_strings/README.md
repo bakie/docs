@@ -13,6 +13,7 @@
 * [Optional Chaining (?.)](#optional-chaining---)
 * [Looping Objects: Object Keys, Values and Entries](#looping-objects--object-keys-values-and-entries)
 * [Sets](#sets)
+* [Maps: Fundamentals](#maps--fundamentals)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -468,4 +469,36 @@ for(const order of OrdersSet) console.log(order); // Pasta
                                                   // Pizza ...
 ordersSet.clear();
 console.log(ordersSet); // {}
+```
+
+## Maps: Fundamentals
+Introduced in ES6. A data structure to map values to keys.  
+The keys can be any type of key, while in objects they keys are always a string.
+```
+const restMap = new Map();
+`restMap.set('keyName', 'keyValue');
+`restMap.set(1, 'First');
+restMap.set(2, 'Second');
+console.log(restMap); // { keyName → "keyValue", 1 → "First", 2 → "Second" }
+
+// setting a value returns the map, so we can chain the commands.
+restMap.set(true, 'This is true').set(false, 'This is false');
+console.log(restMap); // { keyName → "keyValue", 1 → "First", 2 → "Second", true → "This is true", false → "This is false" }
+
+console.log(rest.get('keyName')); // keyValue
+console.log(rest.get(1)); // First
+console.log(rest.get(true)); // This is true
+
+console.log(restMap.has('unknown'));  // false
+restMap.delete('keyName');
+console.log(restMap); // { 1 → "First", 2 → "Second", true → "This is true", false → "This is false" }
+
+console.log(restMap.size); // 4
+
+restMap.set([1,2], 'Array');
+console.log(restMap); //{ 1 → "First", 2 → "Second", true → "This is true", false → "This is false", (2) […] → "Array" }
+console.log(restMap.get([1,2])); // undefined. The two arrays are not the same objects!
+
+restMap.clear();
+console.log(restMap); // Map(0)
 ```
