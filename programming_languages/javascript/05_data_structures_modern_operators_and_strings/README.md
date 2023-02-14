@@ -8,6 +8,7 @@
 * [Short Circuiting (&& and ||)](#short-circuiting---and--)
 * [The Nullish Coalescing Operator (??)](#the-nullish-coalescing-operator---)
 * [Logical Assignment Operators](#logical-assignment-operators)
+* [Looping Arrays: The for-of Loop](#looping-arrays--the-for-of-loop)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -291,4 +292,23 @@ rest1.owner &&= '<ANONYMOUS>';
 rest2.owner &&= '<ANONYMOUS>';
 console.log(rest1); // { name: 'Rest1', numGuests: 20}
 console.log(rest2); // { name: 'Rest2', owner: '<ANONYMOUS>', numGuests: 10}
+```
+
+## Looping Arrays: The for-of Loop
+Introduced in ES6. Possible to use the `continue` and `break` keyword.
+```
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) console.log(menu); // Focaccia
+                                            // Bruschetta ...
+
+// Getting the index (count)
+for (const item of menu.entries()) {
+    console.log(item);  // [0, "Focaccia"]
+                        // [1, "Bruschetta"] ...
+}
+// Using destructuring
+for (const [i, el] of menu.entries()) {
+    console.log(i);     // 1            // 2            // ...
+    console.log(el);    // Focaccia     // Bruschetta   // ...
+}
 ```
