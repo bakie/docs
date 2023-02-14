@@ -10,6 +10,7 @@
 * [Logical Assignment Operators](#logical-assignment-operators)
 * [Looping Arrays: The for-of Loop](#looping-arrays--the-for-of-loop)
 * [Enhanced Object Literals](#enhanced-object-literals)
+* [Optional Chaining (?.)](#optional-chaining---)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -361,4 +362,56 @@ const openingHours = {
         close: 24,
     }
 }
+```
+
+## Optional Chaining (?.)
+Introduced in ES2020. 
+* properties
+* method
+* arrays
+```
+// Optional chaining with properties
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+    thu: {
+        open: 12,
+        close: 22,
+    },
+    fri: {
+        open: 11,
+        close: 23,
+    },
+}
+for (const day of days) {
+    // Without optional chaining
+    if (restaurant.openingHoursp[day]) {
+        const open = restaurant.openingHours[day].open;
+     }
+    // With optional chaining. Only if the day exists then read the open property. Otherwise undefined is returned.
+    const open = restaurant.openingHours[day]?.open;
+    console.log(open); // undefined
+                       // undefined
+                       // undefined
+                       // 12
+                       // 11
+                       // undefined
+                       // undefined
+}
+
+// Optional chaining with methods
+const restaurant = {
+    name: 'Rest',
+    order() {
+        return 'The order method';
+    }
+}
+
+console.log(restaurant.order?.() ?? 'Method does not exist'); // The order method
+console.log(restaurant.orderSomething?.() ?? 'Method does not exist'); // Method does not exist
+
+// Optional chaining with arrays
+const users = [{ name: 'Me' }]
+console.log(users[0]?.name ?? 'User array empty'); // Me
+const emptyUsers = []
+console.log(emptyUsers[0]?.name ?? 'User array empty'); // User array empty
 ```
