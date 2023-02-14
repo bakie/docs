@@ -12,6 +12,7 @@
 * [Enhanced Object Literals](#enhanced-object-literals)
 * [Optional Chaining (?.)](#optional-chaining---)
 * [Looping Objects: Object Keys, Values and Entries](#looping-objects--object-keys-values-and-entries)
+* [Sets](#sets)
 
 ## Destructuring Arrays
 is an ES6 feature, a way of unpacking values from an array or object into separate values.
@@ -447,4 +448,24 @@ for (const [key, value] of Object.entries(openingHours)) {
     console.log(key, value);  // thu, {open: 12, close: 22}
                               // fri, {open: 11, close: 23}
 }
+```
+
+## Sets
+Introduced in ES6. A collection of unique values. Can't have duplicates.  
+In sets there are no indexes, we can't do ordersSet[0]. This will give undefined.
+```
+const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
+console.log(ordersSet); // {"Pasta", "Pizza", "Risotto"}
+console.log(ordersSet.size); // 3
+console.log(ordersSet.has('Pizza')); // true
+console.log(ordersSet.has('Bread')); // false
+ordersSet.add('Bread');
+ordersSet.add('Bread');
+console.log(ordersSet); // {"Pasta", "Pizza", "Risotto", "Bread"}
+ordersSet.delete('Risotto');
+console.log(ordersSet); // {"Pasta", "Pizza", "Bread"}
+for(const order of OrdersSet) console.log(order); // Pasta
+                                                  // Pizza ...
+ordersSet.clear();
+console.log(ordersSet); // {}
 ```
