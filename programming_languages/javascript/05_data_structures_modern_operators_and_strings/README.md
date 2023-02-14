@@ -478,8 +478,8 @@ Introduced in ES6. A data structure to map values to keys.
 The keys can be any type of key, while in objects they keys are always a string.
 ```
 const restMap = new Map();
-`restMap.set('keyName', 'keyValue');
-`restMap.set(1, 'First');
+restMap.set('keyName', 'keyValue');
+restMap.set(1, 'First');
 restMap.set(2, 'Second');
 console.log(restMap); // { keyName → "keyValue", 1 → "First", 2 → "Second" }
 

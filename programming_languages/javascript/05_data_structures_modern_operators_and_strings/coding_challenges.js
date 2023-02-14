@@ -158,3 +158,28 @@ console.log(`An event happened, on average, every ${90 / gameEvents.size} minute
 for (const [minute, event] of gameEvents) {
     console.log(`[${minute <= 45 ? 'FIRST HALF' : 'SECOND HALF'}] ${minute}: ${event}`)
 }
+
+// Coding Challenge #4
+// Simplified it. I just made a camelCaseConverter instead of one big string. And I don't print the checkmarks
+// in case of one big string we first need to split the string on the newline character text.split('\n');
+console.log('CODING CHALLENGE #4');
+const camelCaseConverter = function(item) {
+    const str = item.trim().toLowerCase().split('_');
+    let newStr = '';
+    for (const [key, val] of str.entries()) {
+        if (key) {
+            newStr += val.replace(val[0], val[0].toUpperCase());
+        } else {
+            newStr += val
+        }
+    }
+
+    return newStr;
+}
+
+console.log(camelCaseConverter('underscore_case'));
+console.log(camelCaseConverter(' first_name'));
+console.log(camelCaseConverter('Some_Variable'));
+console.log(camelCaseConverter('  calculate_AGE'));
+console.log(camelCaseConverter('delayed_departure'));
+console.log(camelCaseConverter('a_four_word_string'));
