@@ -3,6 +3,9 @@
 ## Table of contents
 * [Default Parameters](#default-parameters)
 * [How Passing Arguments Works: Value vs. Reference](#how-passing-arguments-works--value-vs-reference)
+* [First-Class and Higher-Order Functions](#first-class-and-higher-order-functions)
+* [Functions Accepting Callback Functions](#functions-accepting-callback-functions)
+* [Functions Returning Functions](#functions-returning-functions)
 
 ## Default Parameters
 ```
@@ -48,3 +51,53 @@ When we pass a reference type (the me object) to a function, then the reference 
 Note: JavaScript does not have passing by reference. Only passing by value!  
 For objects we pass a reference, but that reference is still a value. It contains a memory address.  
 We pass a reference to the function, but we do not pass by reference.  
+
+## First-Class and Higher-Order Functions
+First-Class functions:
+* JavaScript treats functions as first-class citizens
+* This means that functions are simply values
+* Functions are just another "type" of object
+* Store functions in variables of properties
+* Pass functions as arguments to other functions
+* Return functions from functions
+* Call methods on functions
+
+Higher-Order functions:
+* A function that receives another function as an argument, that returns a new function, or both
+* This is only possible because of first-class functions
+
+## Functions Accepting Callback Functions
+```
+const upperFirstWord = function(str) {
+    const [first, ...otherWords] = str.split(' ');
+    return [first.toUpperCase(), ...otherWords].join(' ');
+}
+
+// Higher-Order function
+const transformer = function(str, fn) {
+    console.log(`Original string; ${str}`);
+    console.log(`Transformed string: ${fn(str)}`);
+    console.log(`Transformed by: ${fn.name}`);
+}
+
+transformer('JavaScript is the best!', upperFirstWord);
+
+// Original string: JavaScript is the best!
+// Transformed string: JAVASCRIPT is the best!
+// Transformed by: upperFirstWord
+```
+
+## Functions Returning Functions
+```
+const greet = function(greeting) {
+    return function(name) {
+        console.log(`${greeting} ${name}`);
+    }
+}
+
+const greeterHey = greet('Hey');
+greeterHey('me'); // Hey me
+greeterHey('you'); // Hey you
+
+greet('Hello')('me'); // Hello me
+```
