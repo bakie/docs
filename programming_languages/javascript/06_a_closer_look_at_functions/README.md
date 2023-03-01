@@ -6,6 +6,8 @@
 * [First-Class and Higher-Order Functions](#first-class-and-higher-order-functions)
 * [Functions Accepting Callback Functions](#functions-accepting-callback-functions)
 * [Functions Returning Functions](#functions-returning-functions)
+* [The call and apply Methods](#the-call-and-apply-methods)
+* [The bind method](#the-bind-method)
 
 ## Default Parameters
 ```
@@ -100,4 +102,68 @@ greeterHey('me'); // Hey me
 greeterHey('you'); // Hey you
 
 greet('Hello')('me'); // Hello me
+```
+
+## The call and apply Methods
+* Manually set the `this` keyword for any function call.
+* The `call()` method calls the function with a given `this` value and `arguments` provided individually.  
+* The `apply()` method calls the specified function with a given `this` value, and `arguments` provided as an array.
+```
+const airline = {
+    name: 'air',
+    code: 'AI',
+    bookings: [],
+    book(flightNum, passengerName) {
+        console.log(`${passengerName} booked a seat on ${this.name} flight ${this.code}${flightNum}`);
+        this.bookings.push({flight: `${this.code}${flightNum}`, name })
+    }
+}
+
+airline.book(123, 'me'); // me booked a seat on air flight AI123
+
+const airline2 = {
+    name: 'air2',
+    code: 'AI2',
+    bookings: [],
+}
+
+const book = airline.book;
+book(234, 'you'); // Gives TypeError Cannot read property name of undefined (in strict mode). The this keyword becomes undefined
+
+// Call method
+book.call(airline2, 234, 'you'); // you booked a seat on air2 flight AI2234
+
+// Apply method
+book.apply(airline2, [234, 'you']); // you booked a seat on air2 flight AI2234
+```
+
+## The bind method
+* Manually set the `this` keyword for any function call
+* Does not immediately call the function, instead it returns a new function were the `this` keyword is set to the value we pass into bind
+* The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of `arguments` preceding any provided when the new function is called.
+```
+const airline = {
+    name: 'air',
+    code: 'AI',
+    bookings: [],
+    book(flightNum, passengerName) {
+        console.log(`${passengerName} booked a seat on ${this.name} flight ${this.code}${flightNum}`);
+        this.bookings.push({flight: `${this.code}${flightNum}`, name })
+    }
+}
+
+const airline2 = {
+    name: 'air2',
+    code: 'AI2',
+    bookings: [],
+}
+
+// The this keyword will always be set to airline2
+const bookAir2 = airline.book.bind(airline2);
+
+bookAir2(456, 'you'); // you booked a seat on air2 flight AI2456
+
+// Preset the flightNum to 456. This way you don't need to pass the flightNum all the time. You can only pass the passengerName
+const bookAir2456 = airline.book.bind(airline2, 456);
+bookAir2456('me'); // me booked a seat on air2 flight AI2456
 ```
