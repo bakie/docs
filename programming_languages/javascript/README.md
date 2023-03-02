@@ -9,6 +9,7 @@ source: https://www.udemy.com/course/the-complete-javascript-course
 * [How JavaScript works behind the scenes](04_javascript_behind_the_scenes/README.md)
 * [Data Structures, Modern Operators and Strings](05_data_structures_modern_operators_and_strings/README.md)
 * [A Closer Look at Functions](06_a_closer_look_at_functions/README.md)
+* [Working with Arrays](07_working_with_arrays/README.md)
 
 ## Useful links
 * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
