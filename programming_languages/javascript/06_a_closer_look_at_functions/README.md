@@ -8,6 +8,8 @@
 * [Functions Returning Functions](#functions-returning-functions)
 * [The call and apply Methods](#the-call-and-apply-methods)
 * [The bind method](#the-bind-method)
+* [Immediately Invoked Function Expressions](#immediately-invoked-function-expressions--iife-)
+* [Closures](#closures)
 
 ## Default Parameters
 ```
@@ -167,3 +169,44 @@ bookAir2(456, 'you'); // you booked a seat on air2 flight AI2456
 const bookAir2456 = airline.book.bind(airline2, 456);
 bookAir2456('me'); // me booked a seat on air2 flight AI2456
 ```
+
+## Immediately Invoked Function Expressions (IIFE)
+* A JavaScript function that runs as soon as it is defined.
+* Avoid polluting the global namespace
+* Execute an async function
+```
+(functoin() {
+    console.log('This will never run again');
+})();
+
+(() => console.log('This will never run again'))(); 
+```
+
+## Closures
+* We do not have to manually create closures, this is a JavaScript feature that happens automatically. We can't even access closed-over variables explicitly. A closure is NOT a tangible JavaScript object.
+* Makes a function remember all the variables that existed at the function's birthplace (e.g. passengerCount)
+* Any function always has access to the variable environment of the execution context in which the function was created. Even when that execution context is gone.
+  (booker was created in the execution context of secureBooking() which was popped of the stack. 
+  The booker function will get access to the variable environment of the secureBooking which contains the passengerCount variable)
+* A Closure: Variable environment attached to the function, exactly as it was at the time and place the function was created.
+* Priority over scope chain
+```
+const secureBooking = function() {
+    let passengerCount = 0;
+    
+    return function() {
+        passengerCount++;
+        console.log(`${passengerCount} passengers`);
+    }
+}
+
+const booker = secureBooking();
+
+booker(); // 1 passengers
+booker(); // 2 passengers
+booker(); // 3 passengers
+```
+* A closure is the closed-over variable environment of the execution context in which a function was created, even after that execution context is gone
+* A closure gives a function access to all the variables of its parent function, even after that parent function has returned. The function keeps a reference to its outer scope, which preserves the scope chain throughout time.
+* A closure makes sure that a function doesn't loose connect to variables that existed at the function's brith place
+* A closure is like a backpack that a function carries around wherever it goes. This backpack has all the variables that were present in the environment where the function was created.
