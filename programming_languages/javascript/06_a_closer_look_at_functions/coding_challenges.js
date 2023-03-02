@@ -18,6 +18,7 @@ const poll = {
             this.answers[answer] ? this.answers[answer]++ : (this.answers[answer] = 1);
         }
 
+        this.displayResults();
         this.displayResults('string');
     },
     displayResults(type = 'array') {
@@ -29,11 +30,20 @@ const poll = {
     }
 }
 
-poll.registerNewAnswer();
-poll.registerNewAnswer();
-poll.registerNewAnswer();
+document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll))
 
 poll.displayResults.call({ answers: [5, 2, 3] });
 poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+
+// Coding Challenge #2
+console.log('CODING CHALLENGE #2');
+(function () {
+    const header = document.querySelector('h1');
+    header.style.color = 'red';
+
+    document.querySelector('body').addEventListener('click', function() {
+        header.style.color = 'blue';
+    });
+})();
