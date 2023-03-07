@@ -2,6 +2,8 @@
 
 ## Table of contents
 * [Simple Array Methods](#simple-array-methods)
+* [Looping Arrays: forEach](#looping-arrays--foreach)
+* [forEach With Maps and Sets](#foreach-with-maps-and-sets)
 
 ## Simple Array Methods
 * Arrays are objects and get access to special build-in methods
@@ -10,9 +12,9 @@
 * [Reverse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
 * [Concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
 * [Join](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+* [At](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
 * [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 ```
-
 // Slice method - creates shallow copy
 let arr = ['a', 'b', 'c', 'd', 'e'];
 console.log(arr.slice(2)); // [ 'c', 'd', 'e' ]
@@ -46,4 +48,66 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 console.log(arr.join()); // a,b,c,d,e
 console.log(arr.join('')); // abcde
 console.log(arr.join('-')); // a-b-c-d-e
+
+// At
+let arr = ['a', 'b', 'c']
+console.log(arr[0]); // a
+console.log(arr.at(0)); // a
+console.log(arr.at(-2)); // b
+```
+
+## Looping Arrays: forEach
+* forEach passes the current element, the index and the entire array we are looping to the callback function.
+* continue and break statements do not work in forEach statement.
+```
+const numbers = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// For loop
+for (const number in numbers) {
+    console.log(number);
+}
+
+// forEach loop
+numbers.forEach(function(number) {
+    console.log(number); 
+});
+// 200
+// 450
+// -400
+// ...
+numbers.forEach(function(number, index, array) {
+    console.log(number); // 200
+    console.log(index); // 0
+    console.log(array); // [200, 450, -400, 3000, -650, -130, 70, 1300]
+}
+numbers.forEach(number => console.log(number));
+```
+
+## forEach With Maps and Sets
+```
+const currencies = new Map([
+  ['USD', 'United States Dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound Sterling'],
+])
+
+currencies.forEach(function(value, key, map) {
+    console.log(value);
+    console.log(key);
+    console.log(map);
+}
+// United States Dollar
+// USD
+// { USD → "United States Dollar", EUR → "Euro", GBP → "Pound Sterling" }
+// ...
+
+const currenciesUnique = new Set(['USD', 'GBP', 'EUR', 'USD', 'EUR']);
+currenciesUnique.forEach(function(value, key, set) {
+    console.log(value);
+    console.log(key);
+    console.log(set);
+});
+// USD
+// USD
+// [ "USD", "GBP", "EUR" ]
 ```
