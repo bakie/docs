@@ -4,15 +4,17 @@
 * [Simple Array Methods](#simple-array-methods)
 * [Looping Arrays: forEach](#looping-arrays--foreach)
 * [forEach With Maps and Sets](#foreach-with-maps-and-sets)
+* [Data Transformation: map, filter, reduce](#data-transformations--map-filter-reduce)
 
 ## Simple Array Methods
 * Arrays are objects and get access to special build-in methods
-* [Slice method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
-* [Splice method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+* [Slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+* [Splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
 * [Reverse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
 * [Concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
 * [Join](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 * [At](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
+* [Filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 * [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 ```
 // Slice method - creates shallow copy
@@ -54,6 +56,17 @@ let arr = ['a', 'b', 'c']
 console.log(arr[0]); // a
 console.log(arr.at(0)); // a
 console.log(arr.at(-2)); // b
+
+// Filter
+const words = ['first', 'second', 'third', 'fourth', 'fifth'];
+// Arrow function
+const resultArrow = words.filter(word => word.length > 5);
+// Regular function
+const resultFunc = words.filter(function(word) {
+    return word.length > 5;
+});
+console.log(resultArrow); // [ 'second', 'fourth' ]
+console.log(resultFunc); // [ 'second', 'fourth' ]
 ```
 
 ## Looping Arrays: forEach
@@ -110,4 +123,42 @@ currenciesUnique.forEach(function(value, key, set) {
 // USD
 // USD
 // [ "USD", "GBP", "EUR" ]
+```
+
+## Data Transformations: map, filter, reduce
+* [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map): returns a new array containing the results of applying an operation on all original array elements.
+```
+const arr = [1, 2, 3, 4, 5];
+// Arrow function
+const mapArrayArrow = arr.map(x => x * 2);
+// Regular function
+const mapArrayFunc = arr.map(function(x) {
+    return x * 2;
+});
+console.log(mapArrayArrow); // [ 2, 4, 6, 8, 10 ]
+console.log(mapArrayFunc); // [ 2, 4, 6, 8, 10 ]
+```
+* [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter): returns a new array containing the array elements that passed a specified test condition
+```
+const arr = [1, 2, 3, 4, 5];
+// Arrow function
+const mapArrayArrow = arr.filter(x => x % 2 === 0);
+// Regular function
+const mapArrayFunc = arr.filter(function(x) {
+    return x % 2 === 0;
+});
+console.log(mapArrayArrow); // [ 2, 4 ]
+console.log(mapArrayFunc); // [ 2, 4 ]
+```
+* [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce): boils ("reduces") all array elements down to one single value (e.g. adding all elements together).
+```
+const arr = [1, 2, 3, 4, 5];
+// Arrow function - the 0 is the initialValue
+const sumValueArrow = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+// Regular function - the 0 is the initialValue
+const sumValueFunc = arr.reduce(function(accumulator, currentValue) {
+    return accumulator + currentValue;
+}, 0);
+console.log(sumValueArrow); // 15
+console.log(sumValueFunc); // 15
 ```

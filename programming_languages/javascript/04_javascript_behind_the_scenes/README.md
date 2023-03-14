@@ -7,7 +7,7 @@
 * [Scope and the Scope Chain](#scope-and-the-scope-chain)
 * [Variable Environment: Hoisting and the TDZ](#variable-environment-hoisting-and-the-tdz)
 * [The this keyword](#the-this-keyword)
-* [Regular Functiosn vs. Arrow Functions](#regular-functions-vs-arrow-functions)
+* [Regular Functions vs. Arrow Functions](#regular-functions-vs-arrow-functions)
 * [Primitives vs. Objects (Primitive vs. Reference Types)](#primitives-vs-objects--primitive-vs-reference-types-)
 
 ## An High-level overview of JavaScript
