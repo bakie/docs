@@ -159,6 +159,7 @@ const sumValueArrow = arr.reduce((accumulator, currentValue) => accumulator + cu
 const sumValueFunc = arr.reduce(function(accumulator, currentValue) {
     return accumulator + currentValue;
 }, 0);
+// The initialValue is not required. When omitting this value it takes the first value from the array. And the currentValue for the first iteration becomes the second value from the array.
 console.log(sumValueArrow); // 15
 console.log(sumValueFunc); // 15
 ```
