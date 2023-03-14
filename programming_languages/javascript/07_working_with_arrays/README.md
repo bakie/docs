@@ -15,6 +15,7 @@
 * [Join](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 * [At](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
 * [Filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+* [Find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 * [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 ```
 // Slice method - creates shallow copy
@@ -67,6 +68,11 @@ const resultFunc = words.filter(function(word) {
 });
 console.log(resultArrow); // [ 'second', 'fourth' ]
 console.log(resultFunc); // [ 'second', 'fourth' ]
+
+// Find
+const arr = [1, 3, 20, 2, 50];
+const found = arr.find(el => el > 10);
+console.log(found); // 20
 ```
 
 ## Looping Arrays: forEach
