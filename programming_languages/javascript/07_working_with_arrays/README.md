@@ -16,6 +16,7 @@
 * [At](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
 * [Filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 * [Find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+* [FindIndex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
 * [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 ```
 // Slice method - creates shallow copy
@@ -73,6 +74,11 @@ console.log(resultFunc); // [ 'second', 'fourth' ]
 const arr = [1, 3, 20, 2, 50];
 const found = arr.find(el => el > 10);
 console.log(found); // 20
+
+// FindIndex
+const arr = [1, 3, 20, 2, 50];
+const found = arr.findIndex(el => el > 10);
+console.log(found); // 2
 ```
 
 ## Looping Arrays: forEach
