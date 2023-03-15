@@ -7,6 +7,7 @@
 * [Data Transformation: map, filter, reduce](#data-transformations--map-filter-reduce)
 * [Sorting Arrays](#sorting-arrays)
 * [Creating and Filling Arrays](#creating-and-filling-arrays)
+* [Summary](#summary)
 
 ## Simple Array Methods
 * Arrays are objects and get access to special build-in methods
@@ -253,3 +254,6 @@ console.log(Array.from('hello')); // [ 'h', 'e', 'l', 'l', 'o' ]
 console.log(Array.from([1, 2, 3], x => x * 2)); [ 2, 4, 6 ]
 console.log(Array.from({ length: 3 }, () => 1)); // [ 1, 1, 1 ]
 ```
+
+## Summary
+![Which_array_method_to_use](which_array_method_to_use.png)
