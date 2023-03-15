@@ -17,6 +17,11 @@
 * [Filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 * [Find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 * [FindIndex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
+* [Includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+* [Some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+* [Every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
+* [Flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
+* [FlatMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)
 * [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 ```
 // Slice method - creates shallow copy
@@ -79,6 +84,35 @@ console.log(found); // 20
 const arr = [1, 3, 20, 2, 50];
 const found = arr.findIndex(el => el > 10);
 console.log(found); // 2
+
+// Includes
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.includes(2)); // true
+
+// Some
+const arrayWithEvenNumbers = [1, 2, 3, 4, 5];
+const arrayWithoutEvenNumbers = [1, 3, 5];
+const even = (el) => el % 2 === 0;
+console.log(arrayWithEvenNumbers.some(even)); // true
+console.log(arrayWithoutEvenNumbers.some(even)); // false
+
+// Every
+const arrayWithEvenAndOddNumbers = [1, 2, 3, 4, 5];
+const arrayWithOnlyEvenNumbers = [2, 4, 6];
+const even = (el) => el % 2 === 0;
+console.log(arrayWithEvenAndOddNumbers.every(even)); // false
+console.log(arrayWithOnlyEvenNumbers.every(even)); // true
+
+// Flat
+const arr = [1, 2, [3, 4], 5];
+console.log(arr.flat()); // [1, 2, 3, 4, 5 ]
+const arrDeep = [[[1, 2], 3], 4, 5];
+console.log(arrDeep.flat()); // [ [1, 2], 3, 4, 5 ]
+console.log(arrDeep.flat(2)); // [ 1, 2, 3, 4, 5 ]
+
+// FlatMap
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.flatMap(num => num + 2)); // [3, 4, 5, 6, 7 ]
 ```
 
 ## Looping Arrays: forEach
