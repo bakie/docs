@@ -5,6 +5,8 @@
 * [Looping Arrays: forEach](#looping-arrays--foreach)
 * [forEach With Maps and Sets](#foreach-with-maps-and-sets)
 * [Data Transformation: map, filter, reduce](#data-transformations--map-filter-reduce)
+* [Sorting Arrays](#sorting-arrays)
+* [Creating and Filling Arrays](#creating-and-filling-arrays)
 
 ## Simple Array Methods
 * Arrays are objects and get access to special build-in methods
@@ -22,6 +24,8 @@
 * [Every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
 * [Flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
 * [FlatMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)
+* [Fill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
+* [From](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
 * [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 ```
 // Slice method - creates shallow copy
@@ -113,6 +117,17 @@ console.log(arrDeep.flat(2)); // [ 1, 2, 3, 4, 5 ]
 // FlatMap
 const arr = [1, 2, 3, 4, 5];
 console.log(arr.flatMap(num => num + 2)); // [3, 4, 5, 6, 7 ]
+
+// Fill
+const arr = [1, 2, 3, 4];
+console.log(array1.fill(0, 2, 4)); // [ 1, 2, 0, 0 ]
+console.log(array1.fill(5, 1)); // [ 1, 5, 5, 5 ]
+console.log(array1.fill(6)); // [ 6, 6, 6, 6 ]
+
+// From
+console.log(Array.from('hello')); // [ 'h', 'e', 'l', 'l', 'o' ]
+console.log(Array.from([1, 2, 3], x => x * 2)); [ 2, 4, 6 ]
+console.log(Array.from({ length: 3 }, () => 1)); // [ 1, 1, 1 ]
 ```
 
 ## Looping Arrays: forEach
@@ -208,4 +223,33 @@ const sumValueFunc = arr.reduce(function(accumulator, currentValue) {
 // The initialValue is not required. When omitting this value it takes the first value from the array. And the currentValue for the first iteration becomes the second value from the array.
 console.log(sumValueArrow); // 15
 console.log(sumValueFunc); // 15
+```
+
+## Sorting Arrays
+```
+const arr = [ 'b', 'z', 'a', 'd', 'g' ];
+console.log(arr.sort()); // [ 'a', 'b', 'd', 'g', 'z' ]
+console.log(arr); // [ 'a', 'b', 'd', 'g', 'z' ]
+
+// The numbers are first converted to strings and then sorted. so the string 3000 would come before the string 450
+const numbers = [ 200, 450, -70, 3000 ];
+console.log(numbers.sort()); //  [ -70, 200, 3000, 450 ]
+// The sorting of numbers can be fixed by using a callback function
+numbers.sort((a, b) => a < b ? -1 : 1);
+// simplified
+numbers.sort((a, b) => a - b);
+console.log(numbers); // [ -70, 200, 450, 3000 ]
+```
+
+## Creating and Filling Arrays
+```
+console.log([1, 2, 3]); // [ 1, 2, 3 ]
+console.log(new Array(1, 2, 3)); // [ 1, 2, 3 ]
+console.log(new Array(3)); // [ <3 empty slots> ]
+// There is one method that we can call on the empty array
+console.log(new Array(3).fill(1)); // [ 1, 1, 1 ]
+
+console.log(Array.from('hello')); // [ 'h', 'e', 'l', 'l', 'o' ]
+console.log(Array.from([1, 2, 3], x => x * 2)); [ 2, 4, 6 ]
+console.log(Array.from({ length: 3 }, () => 1)); // [ 1, 1, 1 ]
 ```
