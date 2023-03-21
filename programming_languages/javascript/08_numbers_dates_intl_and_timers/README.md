@@ -1,4 +1,4 @@
-# Working with Arrays
+# Numbers, Dates, Intl and Timers
 
 ## Table of contents
 * [Converting and Checking Numbers](#converting-and-checking-numbers)
@@ -8,6 +8,7 @@
 * [Working with BigInt](#working-with-bigint)
 * [Creating Dates](#creating-dates)
 * [Internationalizing Dates and Numbers](#internationalizing-dates-and-numbers)
+* [Timers: setTimeout and setInterval](#timers--settimeout-and-setinterval)
 
 ## Converting and Checking Numbers
 * [MDN Number docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -114,4 +115,19 @@ console.log(Intl.NumberFormat('en-US').format(num)); // 2,048,214.24
 console.log(Intl.NumberFormat('be-NL').format(num)); // 2 048 214,24
 const options = { style: "currency", currency: "EUR" };
 console.log(Intl.NumberFormat('be-NL', options).format(num)); // 2 048 214,24 €
+```
+
+## Timers: setTimeout and setInterval
+* [MDN setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
+* The global setTimeout() method sets a timer which executes a function or specified piece of code once the timer expires
+* [MDN setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)
+* setInterval: The setInterval() method repeatedly calls a function or executes a code snippet, with a fixed time delay between each call
+```
+// setTimeout - Runs once
+setTimeout(() => console.log('Hello'), 3000);
+setTimeout((param1, param2) => console.log(param1, param2), 3000, 'param1', 'param2');
+
+// setInterval - Keeps running
+setInterval(() => console.log('Hello'), 3000);
+setInterval((param1, param2) => console.log(param1, param2), 3000, 'param1', 'param2');
 ```

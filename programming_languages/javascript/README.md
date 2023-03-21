@@ -10,6 +10,7 @@ source: https://www.udemy.com/course/the-complete-javascript-course
 * [Data Structures, Modern Operators and Strings](05_data_structures_modern_operators_and_strings/README.md)
 * [A Closer Look at Functions](06_a_closer_look_at_functions/README.md)
 * [Working with Arrays](07_working_with_arrays/README.md)
+* [Numbers, Dates, Intl and Timers](08_numbers_dates_intl_and_timers/README.md)
 
 ## Useful links
 * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
