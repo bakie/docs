@@ -6,6 +6,7 @@
 * [The Remainder Operator](#the-remainder-operator)
 * [Numeric Separators](#numeric-separators)
 * [Working with BigInt](#working-with-bigint)
+* [Creating Dates](#creating-dates)
 
 ## Converting and Checking Numbers
 * [MDN Number docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -87,3 +88,12 @@ console.log(previouslyMaxSafeInteger); // 9007199254740991n
 const alsoHuge = BigInt(9007199254740991); // 9007199254740991n
 const hugeString = BigInt("9007199254740991"); // 9007199254740991n
 ```
+
+## Creating Dates
+* [MDN Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+```
+// Auto correct for instance when creating a new date
+console.log(new Date(2037, 10, 30)); // Date Mon Nov 30 2037 00:00:00 GMT+0000 (Coordinated Universal Time)
+console.log(new Date(2037, 10, 31)); // Date Tue Dec 01 2037 00:00:00 GMT+0000 (Coordinated Universal Time)
+```
+
