@@ -2,6 +2,10 @@
 
 ## Table of contents
 * [Converting and Checking Numbers](#converting-and-checking-numbers)
+* [Math and Rounding](#math-and-rounding)
+* [The Remainder Operator](#the-remainder-operator)
+* [Numeric Separators](#numeric-separators)
+* [Working with BigInt](#working-with-bigint)
 
 ## Converting and Checking Numbers
 * [MDN Number docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -31,4 +35,55 @@ console.log(Number.isFinite(20)); // true
 console.log(Number.isFinite('20')); // false
 console.log(Number.isFinite(+'20x')); // false
 console.log(Number.isFinite(23 / 0)); // false. 23 / 0 gives the Infinity value
+
+// Adding decimals to Number
+console.log(Number(23).toFixed(2)); // 23.00
+console.log((23).toFixed(2)); // 23.00
+console.log(Number(23.2).toFixed(2)); // 23.20
+console.log((23.235).toFixed(2)); // 23.23
+```
+
+## Math and Rounding
+* [MDN Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+* Many Math methods to type coercion ('23' --> 23)
+
+## The Remainder Operator
+* [MDN Remainder](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
+* The remainder (%) operator returns the remainder left over when one operand is divided by a second operand. It always takes the sign of the dividend
+```
+console.log(13 % 5); // 3
+console.log(-13 % 5); // -3
+console.log(4 % 2); // 0
+console.log(-4 % 2); // -0
+```
+
+## Numeric Separators
+* Introduced in ES2021
+* To improve readability for numeric literals, underscores (_) can be used as separators
+```
+// 287,460,0000,000
+const diamter = 287_460_000_000;
+console.log(diamter); // 287460000000
+```
+
+## Working with BigInt
+* Introduced in ES2020
+* [MDN BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+* BigInt values represent numeric values which are too large to be represented by the number primitive
+* Numbers are represented internally as 64bits. There are 64 1's or 0's to represent any given number.
+  * only 53 or used to store the digits itself. The rest are for storing the position of the decimal point and the sign.
+* Any integer greater than the MAX_SAFE_INTEGER can not be represented accurately
+```
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+console.log(2 ** 53 - 1); // 9007199254740991
+// Not safe anymore, but still correct
+console.log(2 ** 53 + 1); // 9007199254740992
+// Not safe anymore and incorret
+console.log(2 ** 53 + 2); // 9007199254740994
+console.log(2 ** 53 + 3); // 9007199254740996
+
+const previouslyMaxSafeInteger = 9007199254740991n;
+console.log(previouslyMaxSafeInteger); // 9007199254740991n
+const alsoHuge = BigInt(9007199254740991); // 9007199254740991n
+const hugeString = BigInt("9007199254740991"); // 9007199254740991n
 ```
