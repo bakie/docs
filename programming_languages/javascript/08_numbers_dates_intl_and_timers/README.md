@@ -7,6 +7,7 @@
 * [Numeric Separators](#numeric-separators)
 * [Working with BigInt](#working-with-bigint)
 * [Creating Dates](#creating-dates)
+* [Internationalizing Dates and Numbers](#internationalizing-dates-and-numbers)
 
 ## Converting and Checking Numbers
 * [MDN Number docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -68,8 +69,8 @@ console.log(diamter); // 287460000000
 ```
 
 ## Working with BigInt
-* Introduced in ES2020
 * [MDN BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+* Introduced in ES2020
 * BigInt values represent numeric values which are too large to be represented by the number primitive
 * Numbers are represented internally as 64bits. There are 64 1's or 0's to represent any given number.
   * only 53 or used to store the digits itself. The rest are for storing the position of the decimal point and the sign.
@@ -97,3 +98,20 @@ console.log(new Date(2037, 10, 30)); // Date Mon Nov 30 2037 00:00:00 GMT+0000 (
 console.log(new Date(2037, 10, 31)); // Date Tue Dec 01 2037 00:00:00 GMT+0000 (Coordinated Universal Time)
 ```
 
+## Internationalizing Dates and Numbers
+* [MDN Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+```
+// Dates
+const now = new Date();
+console.log(Intl.DateTimeFormat('en-US').format(now)); // 3/21/2023
+console.log(Intl.DateTimeFormat('en-GB').format(now)); // 21/03/2023
+const options = {hour: 'numeric', minute: 'numeric', day: 'numeric', month: 'long', year: 'numeric'}
+console.log(Intl.DateTimeFormat('en-US', options).format(now)); // March 21, 2023 at 12:42 PM
+
+// Numbers
+const num = 2048214.24;
+console.log(Intl.NumberFormat('en-US').format(num)); // 2,048,214.24
+console.log(Intl.NumberFormat('be-NL').format(num)); // 2 048 214,24
+const options = { style: "currency", currency: "EUR" };
+console.log(Intl.NumberFormat('be-NL', options).format(num)); // 2 048 214,24 €
+```
