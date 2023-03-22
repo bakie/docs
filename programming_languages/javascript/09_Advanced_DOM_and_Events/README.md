@@ -5,6 +5,8 @@
 * [Selecting, Creating, and Deleting Elements](#selecting-creating-and-deleting-elements)
 * [Types of Events and Event Handlers](#types-of-events-and-event-handlers)
 * [Event Propagation: Bubbling and Capturing](#event-propagation--bubbling-and-capturing)
+* [Event Delegation](#event-delegation)
+* [Passing Argument to Event Handlers](#passing-arguments-to-event-handlers)
 
 ## How the DOM Really Works
 * DOM is the interface between the browser and our javascript code.
@@ -43,3 +45,18 @@
   * it will pass through every single parent element of the target element
 * Bubbling phase: The event travels from the target element to the document root
   * it will pass through every single parent element of the target element
+
+## Event Delegation
+* When there are a lot of elements handled in the same way, then instead of assigning a handler to each of them, we put a single handler on their common parent.
+* This way there is only one function instead of a function for each child element
+
+## Passing Arguments to Event Handlers
+```
+// The this keyword becomes the passed argument
+const message = function(e) {
+  console.log(this);
+}
+// The addEventListener expects a function, and bind returns a new functions!
+element.addEventListener('mouseover', message.bind('hello mouseover'));
+element.addEventListener('mouseout', message.bind('hello mouseout'));
+```
