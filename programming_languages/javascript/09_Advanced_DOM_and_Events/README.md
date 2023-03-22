@@ -4,6 +4,7 @@
 * [How the DOM Really Works](#how-the-dom-really-works)
 * [Selecting, Creating, and Deleting Elements](#selecting-creating-and-deleting-elements)
 * [Types of Events and Event Handlers](#types-of-events-and-event-handlers)
+* [Event Propagation: Bubbling and Capturing](#event-propagation--bubbling-and-capturing)
 
 ## How the DOM Really Works
 * DOM is the interface between the browser and our javascript code.
