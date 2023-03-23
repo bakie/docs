@@ -3,6 +3,7 @@
 ## Table of contents
 * [What is Object-Oriented Programming?](#what-is-object-oriented-programming)
 * [OOP in JavaScript](#oop-in-javascript)
+* [Constructor Functions and the new Operator](#constructor-functions-and-the-new-operator)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -28,7 +29,7 @@
 * Behavior is delegated to the linked prototype object
 
 3 ways of implementing prototypal inheritance in JavaScript:
-* constructor functions
+* Constructor functions
   * technique to create objects from a function
   * this is how built-in objects like Arrays, Maps or Sets are actually implemented
 * ES6 classes
@@ -37,3 +38,27 @@
   * ES6 classes do not behave like classes in 'classical OOP'
 * Object.create()
   * the easiest and most straightforward way of linking an object to a prototype object
+
+## Constructor Functions and the new Operator
+* convention: constructor function start with capital letter
+* arrow functions will not work as constructor function because it does not have it own `this` keyword, and we need that. So only function declaration and function expressions will work.
+* difference between regular function and constructor function, is that we call the constructor with the `new` keyword
+* never create methods in constructor functions. Each object will have the function. If we create 1000 object we will have 1000 copies of the function
+
+4 steps happen when using new:
+1. New empty object ({}) is created
+2. The function is called and the `this` keyword will be set to the newly created object. this = {}
+3. {} is linked to prototype
+4. The function automatically returns the object ({}) (if we do not set anything in the object)
+
+```
+const Person = function(firstName, birthYear) {
+    console.log(this); // Person {}
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+    console.log(this); // Person { firstName: "me", birthYear: "1900" }
+}
+
+const me = new Person('me', '1900');
+console.log(me); // Person { firstName: "me", birthYear: "1900" }
+```
