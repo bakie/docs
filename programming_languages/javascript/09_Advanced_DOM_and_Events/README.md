@@ -8,6 +8,8 @@
 * [Event Delegation](#event-delegation)
 * [Passing Argument to Event Handlers](#passing-arguments-to-event-handlers)
 * [Intersection Observer API](#intersection-observer-api)
+* [Lifecycle DOM events](#lifecycle-dom-events)
+* [Efficient Script Loading: defer and async](#efficient-script-loading--defer-and-async)
 
 ## How the DOM Really Works
 * DOM is the interface between the browser and our javascript code.
@@ -48,7 +50,7 @@
   * it will pass through every single parent element of the target element
 
 ## Event Delegation
-* When there are a lot of elements handled in the same way, then instead of assigning a handler to each of them, we put a single handler on their common parent.
+* When there are a lot of elements handled in the same way, then instead of assigning a handler to each of them, we put a single handler on their common parent
 * This way there is only one function instead of a function for each child element
 
 ## Passing Arguments to Event Handlers
@@ -76,3 +78,16 @@ const observerOptions = {
 const observer = new IntersectionObserver(observerCallback, observerOptions);
 observer.observe(targetElement);
 ```
+
+## Lifecycle DOM events
+* [DOMContentLoaded event](https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event)
+  * fired when the HTML document has been completely parsed, and all deferred scripts have downloaded and executed
+  * It doesn't wait for other things like images, subframes, and async scripts to finish loading
+* [load event](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event)
+  * fired when the whole page has loaded, including all dependent resources such as stylesheets, scripts, iframes, and images
+* [beforeunload event](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event)
+  * fired when the window, the document and its resources are about to be unloaded. (closing the browser)
+
+## Efficient Script Loading: defer and async
+![defer_and_async_script_loading](defer_and_async_script_loading.png)
+![regular_vs_async_vs_defer](regular_vs_async_vs_defer.png)
