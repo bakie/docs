@@ -12,6 +12,7 @@ source: https://www.udemy.com/course/the-complete-javascript-course
 * [Working with Arrays](07_working_with_arrays/README.md)
 * [Numbers, Dates, Intl and Timers](08_numbers_dates_intl_and_timers/README.md)
 * [Advanced DOM and Event](09_advanced_dom_and_events/README.md)
+* [Object-Oriented Programming (OOP) With JavaScript](10_object_oriented_programming/README.md)
 
 ## Useful links
 * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
