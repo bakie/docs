@@ -4,6 +4,9 @@
 * [What is Object-Oriented Programming?](#what-is-object-oriented-programming)
 * [OOP in JavaScript](#oop-in-javascript)
 * [Constructor Functions and the new Operator](#constructor-functions-and-the-new-operator)
+* [Prototypes](#prototypes)
+* [Prototypal Inheritance and The Prototype Chain](#prototypal-inheritance-and-the-prototype-chain)
+* [Prototypal Inheritance on Built-In Objects](#prototypal-inheritance-on-built-in-objects)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -46,10 +49,10 @@
 * never create methods in constructor functions. Each object will have the function. If we create 1000 object we will have 1000 copies of the function
 
 4 steps happen when using new:
-1. New empty object ({}) is created
-2. The function is called and the `this` keyword will be set to the newly created object. this = {}
-3. {} is linked to prototype
-4. The function automatically returns the object ({}) (if we do not set anything in the object)
+1. An empty object is created
+2. `this` keyword in cunstructor function call is set to the new object
+3. The new object is linked (__proto__ property) to the constructor function's prototype property
+4. The new object is returned from the constructor function call
 
 ```
 const Person = function(firstName, birthYear) {
@@ -61,4 +64,27 @@ const Person = function(firstName, birthYear) {
 
 const me = new Person('me', '1900');
 console.log(me); // Person { firstName: "me", birthYear: "1900" }
+const you = new Person('you', '2000');
+console.log(me); // Person { firstName: "you", birthYear: "2000" }
 ```
+
+## Prototypes
+* each function automatically has a property called prototype
+* every object created by a constructor function will get access to the methods and properties that we define on the constructor's prototype
+```
+Person.prototype.calcAge = function() {
+    console.log(2050 - this.birthYear)
+};
+me.calcAge(); // 150
+you.calcAge(): // 50
+
+Person.prototype.species = 'Homo Sapiens';
+console.log(me.species); // Homo Sapiens
+console.log(you.species); // Homo Sapiens
+
+console.log(me.hasOwnProperty('firstName')); // true
+console.log(me.hasOwnProperty('species')); // false
+```
+
+## Prototypal Inheritance and The Prototype Chain
+![prototype_chain](prototype_chain.png)
