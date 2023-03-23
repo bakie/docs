@@ -11,6 +11,7 @@ source: https://www.udemy.com/course/the-complete-javascript-course
 * [A Closer Look at Functions](06_a_closer_look_at_functions/README.md)
 * [Working with Arrays](07_working_with_arrays/README.md)
 * [Numbers, Dates, Intl and Timers](08_numbers_dates_intl_and_timers/README.md)
+* [Advanced DOM and Event](09_advanced_dom_and_events/README.md)
 
 ## Useful links
 * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
