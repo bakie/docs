@@ -7,6 +7,7 @@
 * [Event Propagation: Bubbling and Capturing](#event-propagation--bubbling-and-capturing)
 * [Event Delegation](#event-delegation)
 * [Passing Argument to Event Handlers](#passing-arguments-to-event-handlers)
+* [Intersection Observer API](#intersection-observer-api)
 
 ## How the DOM Really Works
 * DOM is the interface between the browser and our javascript code.
@@ -59,4 +60,19 @@ const message = function(e) {
 // The addEventListener expects a function, and bind returns a new functions!
 element.addEventListener('mouseover', message.bind('hello mouseover'));
 element.addEventListener('mouseout', message.bind('hello mouseout'));
+```
+
+## Intersection Observer API
+* [MDN Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+* Allows code to observe changes to the way a certain target element intersects with another element or viewport
+```
+const observerCallback = function(entries, observer) {
+  ...
+};
+const observerOptions = {
+  root: null,
+  threshold: [0, 0.2],
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+observer.observe(targetElement);
 ```
