@@ -7,6 +7,7 @@
 * [Prototypes](#prototypes)
 * [Prototypal Inheritance and The Prototype Chain](#prototypal-inheritance-and-the-prototype-chain)
 * [Prototypal Inheritance on Built-In Objects](#prototypal-inheritance-on-built-in-objects)
+* [ES6 Classes](#es6-classes)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -37,7 +38,7 @@
   * this is how built-in objects like Arrays, Maps or Sets are actually implemented
 * ES6 classes
   * modern alternative to constructor function syntax
-  * 'syntactic sugar': behing the scenes, ES6 classes work exactly like constructor functions
+  * 'syntactic sugar': behind the scenes, ES6 classes work exactly like constructor functions
   * ES6 classes do not behave like classes in 'classical OOP'
 * Object.create()
   * the easiest and most straightforward way of linking an object to a prototype object
@@ -62,10 +63,10 @@ const Person = function(firstName, birthYear) {
     console.log(this); // Person { firstName: "me", birthYear: "1900" }
 }
 
-const me = new Person('me', '1900');
-console.log(me); // Person { firstName: "me", birthYear: "1900" }
-const you = new Person('you', '2000');
-console.log(me); // Person { firstName: "you", birthYear: "2000" }
+const me = new Person('me', 1900);
+console.log(me); // Person { firstName: "me", birthYear: 1900 }
+const you = new Person('you', 2000);
+console.log(me); // Person { firstName: "you", birthYear: 2000 }
 ```
 
 ## Prototypes
@@ -88,3 +89,31 @@ console.log(me.hasOwnProperty('species')); // false
 
 ## Prototypal Inheritance and The Prototype Chain
 ![prototype_chain](prototype_chain.png)
+
+## ES6 Classes
+* syntactic sugar: behind the scenes, ES6 classes work exactly like constructor functions
+* still implement prototypal inheritance behind the scenes
+* methods added in the class will be on the prototype of the objects and not on the objects itself
+* Classes are not hoisted. We can not use them before they are declared in the code.
+* Are first-class citizens. We can pass them into functions and also return them from functions.
+* Classes are executed in strict mode
+```
+// class expression
+const Person = class {}
+
+// class declaration
+class Person {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  
+  calcAge() {
+    console.log(2050 - this.birthYear);
+  }
+}
+
+const me = new Person('me', 1900);
+console.log(me); // { firstName: "me", birthYear: 1900 }
+me.calcAge(); // 150
+```
