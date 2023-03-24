@@ -12,6 +12,7 @@
 * [Static Methods](#static-methods)
 * [Object.create](#objectcreate)
 * [Inheritance Between "Classes": Constructor Functions](#inheritance-between--classes---constructor-functions)
+* [Inheritance Between "Classes": ES6 Classes](#inheritance-between--classes---es6-classes)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -169,9 +170,9 @@ class Person {
 }
 
 const me = new Person('me', 1900);
-//console.log(me.age); // 150
+console.log(me.age); // 150
 me.firstName = 'you';
-//console.log(me.firstName); // you
+console.log(me.firstName); // you
 ```
 
 ## Static Methods
@@ -244,4 +245,41 @@ const me = new Student('me', 1900, 'JS');
 console.log(me); // { firstName: "me", birthYear: 1900, course: "JS" }
 me.intro(); // My name is me and I study JS
 me.calcAge(); // 150
+```
+
+## Inheritance Between "Classes": ES6 Classes
+* the extends keyword will link the prototypes behind the scenes
+* the super keyword calls the constructor of the parent class.
+* the super always need to happen first. The super call is responsible for creating the `this` keyword in the subclass
+```
+class Person {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  
+  calcAge() {
+    console.log(2050 - this.birthYear);
+  }
+}
+
+class Student extends Person {
+  constructor(firstName, birthYear, course) {
+    super(firstName, birthYear);
+    this.course = course;
+  }
+  
+  intro() {
+    console.log(`My name is ${this.firstName} and I study ${this.course}`);
+  }
+  
+  calcAge() {
+    console.log(`I am ${2050 - this.birthYear} years old`);
+  }
+}
+
+const me = new Student('me', 1900, 'JS');
+console.log(me); // { firstName: "me", birthYear: 1900, course: "JS" }
+me.intro(); // My name is me and I study JS
+me.calcAge(); // I am 150 years old
 ```
