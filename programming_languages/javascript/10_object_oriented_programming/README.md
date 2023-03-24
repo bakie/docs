@@ -8,6 +8,7 @@
 * [Prototypal Inheritance and The Prototype Chain](#prototypal-inheritance-and-the-prototype-chain)
 * [Prototypal Inheritance on Built-In Objects](#prototypal-inheritance-on-built-in-objects)
 * [ES6 Classes](#es6-classes)
+* [Setters and Getters](#setters-and-getters)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -116,4 +117,56 @@ class Person {
 const me = new Person('me', 1900);
 console.log(me); // { firstName: "me", birthYear: 1900 }
 me.calcAge(); // 150
+```
+
+## Setters and Getters
+* functions that get and set a value
+```
+// Regular function
+const person = {
+  name: 'me',
+  birthYear: 1900,
+  
+  get age() {
+    return 2050 - this.birthYear;
+  },
+  
+  set firstName(name) {
+    this.name = name;
+  }
+}
+
+console.log(person.age); // 150
+person.firstName = 'you';
+console.log(person.name); // you
+
+// Classes
+class Person {
+  constructor(firstName, birthYear) {
+    // this.firstName will call the setter
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  
+  calcAge() {
+    console.log(2050 - this.birthYear);
+  }
+  
+  get age() {
+    return 2050 - this.birthYear;
+  }
+  
+  set firstName(name) {
+    this._firstName = name;
+  }
+  
+  get firstName() {
+    return this._firstName;
+  }
+}
+
+const me = new Person('me', 1900);
+//console.log(me.age); // 150
+//me.firstName = 'you';
+//console.log(me.firstName); // you
 ```
