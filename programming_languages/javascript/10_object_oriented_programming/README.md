@@ -9,6 +9,8 @@
 * [Prototypal Inheritance on Built-In Objects](#prototypal-inheritance-on-built-in-objects)
 * [ES6 Classes](#es6-classes)
 * [Setters and Getters](#setters-and-getters)
+* [Static Methods](#static-methods)
+* [Object.create](#objectcreate)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -169,4 +171,43 @@ const me = new Person('me', 1900);
 //console.log(me.age); // 150
 //me.firstName = 'you';
 //console.log(me.firstName); // you
+```
+
+## Static Methods
+* [MDN docs](https://developer.mozilla.org/en-US/docs/Glossary/Static_method)
+* a method defined as a member of an object but is accessible directly from an object's constructor, rather than from an object instance created via the constructor.
+```
+class Person {
+  static hey() {
+    console.log('Hello');
+  }
+}
+Person.hey(); // Hello
+const me = new Person();
+me.hey(); // TypeError: me.hey is not a function
+```
+
+## Object.create
+* The Object.create() static method creates a new object, using an existing object as the prototype of the newly created object.
+* works in a different way as constructor function and classes
+* there are no prototype properties involved and no constructor functions and no new operator
+* manually set the prototype of an object to any other object that we want
+```
+const Person = {
+  name: 'you',
+  calcAge() {
+    console.log(2050 - this.birthYear);
+  }
+}
+const me = Object.create(Person);
+me.birthYear = 1900;
+me.name = 'me';
+
+const you = Object.create(Person);
+you.birthYear = 2000;
+
+console.log(me.name); // me
+me.calcAge(); // 150
+console.log(you.name); // you
+you.calcAge(); // 150
 ```
