@@ -16,6 +16,7 @@
 * [Inheritance Between "Classes": Object.create](#inheritance-between--classes---objectcreate)
 * [Encapsulation: Protected Properties and Methods](#encapsulation--protected-properties-and-methods)
 * [Encapsulation: Private Class Fields and Methods](#encapsulation--private-class-fields-and-methods)
+* [ES6 Classes Summary](#es6-classes-summary)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -355,3 +356,6 @@ console.log(me); // { locale: "en", firstName: "me", birthYear: 1900, #privateFi
 console.log(me.getPrivateField()); // private
 me.accessPrivateMethod();
 ```
+
+## ES6 Classes Summary
+![ES6_classes_summary](es6_classes_summary.png)
