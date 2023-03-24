@@ -83,3 +83,30 @@ tesla.accelerate();
 tesla.brake();
 tesla.chargeBattery(90);
 tesla.accelerate();
+
+// Coding Challenge #4
+console.log('CODING CHALLENGE #4');
+class EVCL extends CarCl {
+    #charge;
+    constructor(make, speed, charge) {
+        super(make, speed);
+        this.#charge = charge;
+    }
+
+    chargeBattery(chargeTo) {
+        this.#charge = chargeTo;
+
+        return this;
+    }
+
+    accelerate() {
+        this.speed += 20;
+        this.#charge--;
+        console.log(`${this.make} is going at ${this.speed} km/h, with a charge of ${this.#charge}%`);
+
+        return this;
+    };
+}
+
+const rivian = new EVCL('Rivian', 120, 23);
+rivian.accelerate().chargeBattery(80).accelerate();
