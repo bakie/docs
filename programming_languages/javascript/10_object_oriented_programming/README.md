@@ -14,6 +14,8 @@
 * [Inheritance Between "Classes": Constructor Functions](#inheritance-between--classes---constructor-functions)
 * [Inheritance Between "Classes": ES6 Classes](#inheritance-between--classes---es6-classes)
 * [Inheritance Between "Classes": Object.create](#inheritance-between--classes---objectcreate)
+* [Encapsulation: Protected Properties and Methods](#encapsulation--protected-properties-and-methods)
+* [Encapsulation: Private Class Fields and Methods](#encapsulation--private-class-fields-and-methods)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -311,4 +313,45 @@ me.init('me', 1900, 'JS');
 console.log(me); // { firstName: "me", birthYear: 1900, course: "JS" }
 me.intro(); // My name is me and I study JS
 me.calcAge(); // 150
+```
+
+## Encapsulation: Protected Properties and Methods
+* keep some properties and methods private in the class so they are not exposed outside the class
+* not in JS, we use conventions (begin with _) to specify if certain properties are "protected" (e.g. _protectMe)
+
+## Encapsulation: Private Class Fields and Methods
+* [MDN Private class features](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)
+```
+class Person {
+  // Public fields (on the instances, not the prototype)
+  locale = 'en';
+  // Private fields
+  #privateField = 'private';
+  #privateEmptyField;
+
+  constructor(firstName, birthYear, privateEmptyFieldValue) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+    this.#privateEmptyField = privateEmptyFieldValue;
+  }
+
+  // Public methods
+  getPrivateField() {
+    return this.#privateField;
+  }
+
+  accessPrivateMethod() {
+    this.#privateMethod();
+  }
+
+  // Private methods
+  #privateMethod(val) {
+    console.log('this is a private method');
+  }
+}
+
+const me = new Person('me', 1900, 'private empty field value');
+console.log(me); // { locale: "en", firstName: "me", birthYear: 1900, #privateField: "private" }
+console.log(me.getPrivateField()); // private
+me.accessPrivateMethod();
 ```
