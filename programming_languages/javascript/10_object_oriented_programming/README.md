@@ -169,7 +169,7 @@ class Person {
 
 const me = new Person('me', 1900);
 //console.log(me.age); // 150
-//me.firstName = 'you';
+me.firstName = 'you';
 //console.log(me.firstName); // you
 ```
 
