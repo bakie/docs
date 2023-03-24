@@ -11,6 +11,7 @@
 * [Setters and Getters](#setters-and-getters)
 * [Static Methods](#static-methods)
 * [Object.create](#objectcreate)
+* [Inheritance Between "Classes": Constructor Functions](#inheritance-between--classes---constructor-functions)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -210,4 +211,37 @@ console.log(me.name); // me
 me.calcAge(); // 150
 console.log(you.name); // you
 you.calcAge(); // 150
+```
+
+## Inheritance Between "Classes": Constructor Functions
+```
+const Person = function(firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+}
+
+Person.prototype.calcAge = function() {
+  console.log(2050 - this.birthYear);
+}
+
+const Student = function(firstName, birthYear, course) {
+  // In a regular function call, the this keyword is set to undefined. So we need to manually set the this keyword using the .call method
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+}
+
+// The Student prototype now inherits from the Person prototype
+// Must happen before adding methods because the Object.create returns an empty object, and would overwrite the prototype
+Student.prototype = Object.create(Person.prototype);
+// Student.prototype = Person.prototyp would not work. With this we are setting the Student prototype equal to the Person prototype
+// and that is not correct. We want to have the prototype of the Student prototype to be the Person prototype and not the exact same object
+
+Student.prototype.intro = function() {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+}
+
+const me = new Student('me', 1900, 'JS');
+console.log(me); // { firstName: "me", birthYear: 1900, course: "JS" }
+me.intro(); // My name is me and I study JS
+me.calcAge(); // 150
 ```
