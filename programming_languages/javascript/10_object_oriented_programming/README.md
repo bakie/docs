@@ -13,6 +13,7 @@
 * [Object.create](#objectcreate)
 * [Inheritance Between "Classes": Constructor Functions](#inheritance-between--classes---constructor-functions)
 * [Inheritance Between "Classes": ES6 Classes](#inheritance-between--classes---es6-classes)
+* [Inheritance Between "Classes": Object.create](#inheritance-between--classes---objectcreate)
 
 ## What is Object-Oriented Programming?
 * programming paradigm based on the concepts of objects
@@ -282,4 +283,32 @@ const me = new Student('me', 1900, 'JS');
 console.log(me); // { firstName: "me", birthYear: 1900, course: "JS" }
 me.intro(); // My name is me and I study JS
 me.calcAge(); // I am 150 years old
+```
+
+## Inheritance Between "Classes": Object.create
+```
+const Person = {
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+  
+  calcAge() {
+    console.log(2050 - this.birthYear);
+  }
+}
+
+const Student = Object.create(Person);
+Student.init = function(firstName, birthYear, course) {
+  Person.init.call(this, firstName, birthYear);
+  this.course = course;
+}
+Student.intro = function() {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+}
+const me = Object.create(Student)
+me.init('me', 1900, 'JS');
+console.log(me); // { firstName: "me", birthYear: 1900, course: "JS" }
+me.intro(); // My name is me and I study JS
+me.calcAge(); // 150
 ```
