@@ -13,6 +13,7 @@ source: https://www.udemy.com/course/the-complete-javascript-course
 * [Numbers, Dates, Intl and Timers](08_numbers_dates_intl_and_timers/README.md)
 * [Advanced DOM and Event](09_advanced_dom_and_events/README.md)
 * [Object-Oriented Programming (OOP) With JavaScript](10_object_oriented_programming/README.md)
+* [Asynchronous JavaScript: Promises, Async/Await and AJAX](11_asynchronous_javascript_promises_async_await_and_ajax/README.md)
 
 ## Useful links
 * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
