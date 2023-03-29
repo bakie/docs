@@ -3,6 +3,7 @@
 ## Table of contents
 * [Asynchronous JavaScript, AJAX and APIs](#asynchronous-javascript-ajax-and-apis)
 * [AJAX CAll: XMLHttpRequest](#ajax-call--xmlhttprequest)
+* [Callback Hell](#callback-hell)
 
 ## Asynchronous JavaScript, AJAX and APIs
 * Synchronous:
@@ -27,12 +28,38 @@
 const request = new XMLHttpRequest();
 // type of request and url
 request.open('GET', 'https://restcountries.com/v3.1/name/canada');
-// sent request and fetches the data in the background. And then triggers the load event.
+// send request and fetches the data in the background. And then triggers the load event.
 request.send();
 
 request.addEventListener('load', function() {
   // The this keyword is the request object
   const [data] = JSON.parse(this.responseText); // destructure the response to get an object instead of array
   console.log(data); // Object { name: {...}, tld: ..... }
+});
+```
+
+## Callback Hell
+* callbacks inside callbacks inside callbacks ...
+* when we have a lot of nested callbacks in order to execute asynchronous tasks in sequence
+* in ES6 we can use promises to escape callback hell
+```
+const request = new XMLHttpRequest();
+request.open('GET', 'https://restcountries.com/v3.1/name/canada');
+request.send();
+
+request.addEventListener('load', function() {
+  const [data] = JSON.parse(this.responseText); // destructure the response to get an object instead of array
+  const neighbour = data.borders?.[0];
+  
+  if (!neighbour) return;
+  
+  // Get neighbour by code
+  const request2 = new XMLHttpRequest();
+  request2.open('GET', `https://restcountries.com/v3.1/alpha/${neighbour}`);
+  request2.send();
+  request2.addEventListener('load', function() {
+    const [data2] = JSON.parse(this.responseText);
+    console.log(data2.name); // Object { common: "United States", official: "United States of America", ... }
+  });
 });
 ```
