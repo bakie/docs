@@ -9,6 +9,8 @@
 * [Chaining Promises](#chaining-promises)
 * [Handling Rejected Promises](#handling-rejected-promises)
 * [Throwing Errors Manually](#throwing-errors-manually)
+* [Asynchronous Behind the Scenes: The Event Loop](#asynchronous-behind-the-scenes--the-event-loop)
+* [The Event Loop in Practice](#the-event-loop-in-practice)
 
 ## Asynchronous JavaScript, AJAX and APIs
 * Synchronous:
@@ -145,4 +147,49 @@ fetch('https://restcountries.com/v3.1/name/unknown_country')
     return 'ok'
    })
   .catch(err => console.log(err)); // Error: Country not found 404
+```
+
+## Asynchronous Behind the Scenes: The Event Loop
+* [MDN event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+* The event loop looks into the callstack and determines whether it is empty or not
+  * if it is empty (no code being executed): take the first callback from the callback queue and put it on the callstack
+  * it decides when each callback is executed: orchestration
+* callback of promises do not go into the callback queue, they go to the microtasks queue
+  * microtasks queue has priority over callback queue
+  * the event loop will first look into the microtasks queue and processes all of them before going to the callback queue
+
+![javascript_runtime](javascript_runtime.png)
+
+## The Event Loop in Practice
+```
+console.log('Test start');
+setTimeout(() => console.log('0 sec timer'), 0);
+// Promise that is immediately resolved
+Promise.resolve('Resolved promise 1').then(res => console.log(res));
+console.log('Test end');
+
+Output:
+Test start
+Test end
+Resolved promise 1
+0 sec timer
+```
+* Any top lvl code (code outside any callback) will run first --> Test start and Test end
+* Both the timer and promise will finish at the same time (after 0 seconds)
+* the promise goes on the microtasks queue
+* the timer callback goes on the callback queue
+* the microtasks queue has priority over the callback queue
+* the promise gets executed first --> Resolved promise 1
+* the timer callback gets executed last --> 0 sec timer
+
+the timer callback does not get executed after x seconds, but it will not run before x seconds.  
+The following piece of code will show that the log from the setTimeout callback will not show after 1 second.
+```
+console.log('Test start');
+setTimeout(() => console.log('1 sec timer'), 1000);
+Promise.resolve('Resolved promise 1').then(res => {
+for(let i = 0; i < 1000000000; i++) {}
+console.log(res);
+});
+console.log('Test end');
 ```
