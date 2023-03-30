@@ -13,6 +13,7 @@
 * [The Event Loop in Practice](#the-event-loop-in-practice)
 * [Building a Simple Promise](#building-a-simple-promise)
 * [Consuming Promises with Async/Await](#consuming-promises-with-asyncawait)
+* [Error Handling With try...catch](#error-handling-with-trycatch)
 
 ## Asynchronous JavaScript, AJAX and APIs
 * Synchronous:
@@ -247,4 +248,18 @@ const whereAmI = async function(country) {
 };
 whereAmI();
 console.log('this will show first');
+```
+
+## Error Handling With try...catch
+* [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
+* with async/await we can't use the catch method because we cant attach it anywhere
+* also used in regular JS. Has nothing to do with async/await but can be used to catch errors in async/await
+```
+try {
+  functionDoesNotExists();
+} catch (err) {
+  console.log("in the catch");
+}
+
+Output: in the catch
 ```
