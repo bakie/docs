@@ -3,6 +3,7 @@
 ## Table of contents
 * [An Overview of Modules in JavaScript](#an-overview-of-modules-in-javascript)
 * [Exporting and Importing Modules in ES6](#exporting-and-importing-modules-in-es6)
+* [Top Level await](#top-level-await)
 
 ## An Overview of Modules in JavaScript
 * module:
@@ -68,3 +69,11 @@ const randomValue = 37;
 
 export { otherFunction, randomValue as rv };
 ```
+
+## Top Level await
+* introduced in ES2022
+* [Top level await MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#top_level_await)
+* Use the `await` keyword outside an async function
+* only works in modules (<script type="module" ... ></script>)
+* using top level await will block the entire module
+
