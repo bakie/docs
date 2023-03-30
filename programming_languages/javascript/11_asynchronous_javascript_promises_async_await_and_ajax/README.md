@@ -16,6 +16,7 @@
 * [Error Handling With try...catch](#error-handling-with-trycatch)
 * [Returning Values from Async Functions](#returning-values-from-async-functions)
 * [Running Promises in Parallel](#running-promises-in-parallel)
+* [Other Promise Combinators: race, allSettled and any](#other-promise-combinators--race-allsettled-and-any)
 
 ## Asynchronous JavaScript, AJAX and APIs
 * Synchronous:
@@ -315,3 +316,14 @@ const get3Countries = async function(country1, country2, country3) {
 
 get3Countries('canada', 'usa', 'mexico');
 ```
+
+## Other Promise Combinators: race, allSettled and any
+* [Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
+  * takes an iterable of promises as input and returns a single Promise. This returned promise settles with the eventual state of the first promise that settles
+* [Promise.allSettled()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
+  * takes an iterable of promises as input and returns a single Promise. This returned promise fulfills when all of 
+    the input's promises settle (including when an empty iterable is passed), with an array of objects that describe the outcome of each promise.
+* [Promise.any()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
+  * takes an iterable of promises as input and returns a single Promise. This returned promise fulfills when any of the input's promises fulfills, 
+    with this first fulfillment value. It rejects when all of the input's promises reject (including when an empty iterable is passed), 
+    with an AggregateError containing an array of rejection reasons.
