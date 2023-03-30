@@ -323,6 +323,9 @@ get3Countries('canada', 'usa', 'mexico');
 * [Promise.allSettled()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
   * takes an iterable of promises as input and returns a single Promise. This returned promise fulfills when all of 
     the input's promises settle (including when an empty iterable is passed), with an array of objects that describe the outcome of each promise.
+* [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+  * takes an iterable of promises as input and returns a single Promise. This returned promise fulfills when all of the input's promises fulfill 
+    (including when an empty iterable is passed), with an array of the fulfillment values. It rejects when any of the input's promises rejects, with this first rejection reason.
 * [Promise.any()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
   * takes an iterable of promises as input and returns a single Promise. This returned promise fulfills when any of the input's promises fulfills, 
     with this first fulfillment value. It rejects when all of the input's promises reject (including when an empty iterable is passed), 
