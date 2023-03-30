@@ -2,6 +2,7 @@
 
 ## Table of contents
 * [An Overview of Modules in JavaScript](#an-overview-of-modules-in-javascript)
+* [Exporting and Importing Modules in ES6](#exporting-and-importing-modules-in-es6)
 
 ## An Overview of Modules in JavaScript
 * module:
@@ -38,3 +39,32 @@ export { scores };
   * modules are imported synchronously, but downloading is asynchronously
   * possible thanks to top-level ("static") imports, which make imports known before execution
   * this makes bundling and dead code elimination possible
+
+## Exporting and Importing Modules in ES6
+* [JavaScript modules MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#a_background_on_modules)
+```
+// Importing module
+import { customFunction, otherFunction as other, rv } from './customModule.js';
+customFunction('hello'); // hello
+other(); // Other function
+console.log(rv); // 37
+
+// Alternative Importing module
+import * as CustomModule from './customModule.js';
+CustomModule.customFunction('hello');
+CustomModule.other(); // Other function
+CustomModule.console.log(rv); // 37
+
+
+// Exporting module
+export const customFunction = function(word) {
+  console.log(word);
+}
+
+const otherFunction = function() {
+  console.log('Other function');
+}
+const randomValue = 37;
+
+export { otherFunction, randomValue as rv };
+```
