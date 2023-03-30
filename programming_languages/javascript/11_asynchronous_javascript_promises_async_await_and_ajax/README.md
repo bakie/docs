@@ -14,6 +14,7 @@
 * [Building a Simple Promise](#building-a-simple-promise)
 * [Consuming Promises with Async/Await](#consuming-promises-with-asyncawait)
 * [Error Handling With try...catch](#error-handling-with-trycatch)
+* [Returning Values from Async Functions](#returning-values-from-async-functions)
 
 ## Asynchronous JavaScript, AJAX and APIs
 * Synchronous:
@@ -231,6 +232,7 @@ Promise.reject(123).catch(res => console.error(res)); // 123
 * [MDN docs async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 * [MDN docs await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 * an async function is a function that will keep running in the background while performing the code inside of it. When done it returns a promise.
+* async function always returns a promise
 * await will stop the code execution of the function until the promise if fulfilled
 * async/await is syntactic sugar over the `then` method in promises. Behind the scenes we are still using promises!
 ```
@@ -262,4 +264,24 @@ try {
 }
 
 Output: in the catch
+```
+
+## Returning Values from Async Functions
+* async/await will return a promise so we need to use the `then` method to access the return value
+* If we use a try/catch we need to rethrow the error in the catch block. Else the promise will still be fulfilled and the `then` method will get executed and not the `catch` method
+```
+const whereAmI = async function(country) {
+  const response = await fetch('https://restcountries.com/v3.1/name/canada');
+  const data = await response.json();
+
+  return 'Return value of the function'
+};
+console.log('First line');
+whereAmI().then(result => console.log(result));
+console.log('Last Line');
+
+output:
+First line
+Last line
+Return value of the function
 ```
