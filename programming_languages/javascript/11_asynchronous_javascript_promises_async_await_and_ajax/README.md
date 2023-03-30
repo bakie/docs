@@ -12,6 +12,7 @@
 * [Asynchronous Behind the Scenes: The Event Loop](#asynchronous-behind-the-scenes--the-event-loop)
 * [The Event Loop in Practice](#the-event-loop-in-practice)
 * [Building a Simple Promise](#building-a-simple-promise)
+* [Consuming Promises with Async/Await](#consuming-promises-with-asyncawait)
 
 ## Asynchronous JavaScript, AJAX and APIs
 * Synchronous:
@@ -222,4 +223,28 @@ output: sometimes the string 'The random was above 0.5' and sometimes the string
 // Will resolve immediately
 Promise.resolve(123).then(res => console.log(res)); // 123
 Promise.reject(123).catch(res => console.error(res)); // 123
+```
+
+## Consuming Promises with Async/Await
+* ES2017 feature
+* [MDN docs async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+* [MDN docs await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+* an async function is a function that will keep running in the background while performing the code inside of it. When done it returns a promise.
+* await will stop the code execution of the function until the promise if fulfilled
+* async/await is syntactic sugar over the `then` method in promises. Behind the scenes we are still using promises!
+```
+const whereAmI = async function(country) {
+  // This will stop the code. Stopping execution in an async function is not a problem because 
+  // this function is running asynchronously in the background and does not block the main thread (not blocking the callstack)
+  const response = await fetch('https://restcountries.com/v3.1/name/canada');
+  const data = await response.json();
+  console.log(data[0]);
+  
+  // This is exactly the same as above
+  // fetch('https://restcountries.com/v3.1/name/canada')
+  //    .then(response => response.json())
+  //    .then(data => console.log(data[0]));
+};
+whereAmI();
+console.log('this will show first');
 ```
