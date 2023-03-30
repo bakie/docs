@@ -29,7 +29,6 @@ const whereAmi = function(lat, lng) {
 
 // Coding Challenge #2
 console.log('CODING CHALLENGE #2');
-
 const imgContainer = document.querySelector('.images');
 let currentImg;
 
@@ -74,3 +73,32 @@ createImage('coding_images/black.png')
         currentImg.style.display = 'none';
     })
     .catch(err => console.error(err));
+
+// Coding Challenge #3
+console.log('CODING CHALLENGE #3');
+const loadNPause = async function() {
+    try {
+        let image = await createImage('coding_images/black.png');
+        console.log('First image is loaded');
+        await wait(2);
+        image.style.display = 'none';
+        image = await createImage('coding_images/white.png');
+        console.log('Second image is loaded');
+        await wait(2);
+        image.style.display = 'none';
+    } catch (err) {
+        console.log(err);
+    }
+};
+loadNPause();
+
+const loadAll = async function(imgArr) {
+    try {
+        const images = imgArr.map(async img => await createImage(img));
+        const imageElements = await Promise.all(images);
+        imageElements.forEach(image => image.classList.add('parallel'));
+    } catch (err) {
+        console.log(err);
+    }
+}
+loadAll(['coding_images/black.png', 'coding_images/white.png']);
