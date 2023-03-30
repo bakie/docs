@@ -11,6 +11,7 @@
 * [Throwing Errors Manually](#throwing-errors-manually)
 * [Asynchronous Behind the Scenes: The Event Loop](#asynchronous-behind-the-scenes--the-event-loop)
 * [The Event Loop in Practice](#the-event-loop-in-practice)
+* [Building a Simple Promise](#building-a-simple-promise)
 
 ## Asynchronous JavaScript, AJAX and APIs
 * Synchronous:
@@ -192,4 +193,33 @@ for(let i = 0; i < 1000000000; i++) {}
 console.log(res);
 });
 console.log('Test end');
+```
+
+## Building a Simple Promise
+* the resolve is the function from the `then` method
+* the reject is the function from the `catch` method (or the second function from the `then` method)
+* use build promises to wrap old callback based functions into promises
+* promisifying: convert callback based asynchronous behaviour to promise based
+* [Promise.resolve()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)
+* [Promise.reject()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
+```
+const promise = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    if (Math.random() >= 0.5) {
+      resolve('The random was above 0.5');
+    } else {
+      reject('The random was below 0.5');
+    }
+  }, 2000);
+});
+
+promise
+  .then(result => console.log(result))
+  .catch(err => console.error(err));
+ 
+output: sometimes the string 'The random was above 0.5' and sometimes the string 'The random was below 0.5'
+
+// Will resolve immediately
+Promise.resolve(123).then(res => console.log(res)); // 123
+Promise.reject(123).catch(res => console.error(res)); // 123
 ```
