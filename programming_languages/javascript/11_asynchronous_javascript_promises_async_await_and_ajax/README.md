@@ -15,6 +15,7 @@
 * [Consuming Promises with Async/Await](#consuming-promises-with-asyncawait)
 * [Error Handling With try...catch](#error-handling-with-trycatch)
 * [Returning Values from Async Functions](#returning-values-from-async-functions)
+* [Running Promises in Parallel](#running-promises-in-parallel)
 
 ## Asynchronous JavaScript, AJAX and APIs
 * Synchronous:
@@ -284,4 +285,33 @@ output:
 First line
 Last line
 Return value of the function
+```
+
+## Running Promises in Parallel
+* [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+* short circuits when one promise rejects. One rejected promise is enough for the entire promise to be rejected.
+```
+const getJSON = function(url) {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error('Something went wrond');
+    
+    return response.json();
+  });
+};
+
+const get3Countries = async function(country1, country2, country3) {
+  try {
+    const data = await Promise.all([
+      getJSON(`https://restcountries.com/v3.1/name/${country1}`),
+      getJSON(`https://restcountries.com/v3.1/name/${country2}`),
+      getJSON(`https://restcountries.com/v3.1/name/${country3}`),
+    ]);
+    
+    console.log(data.map(d => d[0].capital));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+get3Countries('canada', 'usa', 'mexico');
 ```
