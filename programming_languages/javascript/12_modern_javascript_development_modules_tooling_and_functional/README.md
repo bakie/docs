@@ -5,6 +5,7 @@
 * [Exporting and Importing Modules in ES6](#exporting-and-importing-modules-in-es6)
 * [Top Level await](#top-level-await)
 * [Review: Writing Clean and Modern JavaScript](#review--writing-clean-and-modern-javascript)
+* [Declarative and Functional JavaScript Principles](#declarative-and-functional-javascript-principles)
 
 ## An Overview of Modules in JavaScript
 * module:
@@ -111,3 +112,38 @@ export { otherFunction, randomValue as rv };
   * consume promises with async/await for best readability
   * whenever possible, run promises in parallel (Promise.all)
   * handle errors and promise rejections
+
+## Declarative and Functional JavaScript Principles
+* imperative code:
+  * Programmer explains "how to do things"
+  * We exaplain the computer every single step it has to follow to achieve a result
+  ```
+  const arr = [2, 4, 6, 8];
+  const doubled = [];
+  for (let i = 0; i < arr.length; i++)
+    doubled[i] = arr[i] * 2;
+  ```
+* declarative code:
+  * programmer tells what to do
+  * we simply describe the way the computer should achieve the result
+  * the HOW (step-by-step instructions) gets abstracted away
+  ```
+  const arr = [2, 4, 6, 8];
+  const doubled = arr.map(n => n * 2);
+  ```
+* functional programming:
+  * declarative programming paradigm
+  * based on the idea of writing software by combining many pure functions, avoiding side effects and mutating data
+  * side effect: modification (mutation) of any data outside of the function (mutating external variables, loggin to console, writing to DOM, etc.)
+  * pure function: function without side effects. Does not depend on external variables. Given the same inputs, always returns the same outputs
+  * immutability: state (data) is never modified! Instead, state is copied and the copy is mutated and returned
+* functional programming techniques:
+  * try to avoid data mutations
+  * use bult-in methods that don't produce side effects
+  * do data transformations with methods such as .map(), .filter() and .reduce()
+  * try to avoid side effects in functions
+* declarative syntax:
+  * use array and object destructuring
+  * use the spread operator (...)
+  * use the ternary (conditional) operator
+  * use template literals
