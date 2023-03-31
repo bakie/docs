@@ -4,6 +4,7 @@
 * [An Overview of Modules in JavaScript](#an-overview-of-modules-in-javascript)
 * [Exporting and Importing Modules in ES6](#exporting-and-importing-modules-in-es6)
 * [Top Level await](#top-level-await)
+* [Review: Writing Clean and Modern JavaScript](#review--writing-clean-and-modern-javascript)
 
 ## An Overview of Modules in JavaScript
 * module:
@@ -77,3 +78,36 @@ export { otherFunction, randomValue as rv };
 * only works in modules (<script type="module" ... ></script>)
 * using top level await will block the entire module
 
+## Review: Writing Clean and Modern JavaScript
+* readable code:
+  * write code so that others can understand it
+  * write code so that you can understand it in 1 year
+  * avoid too "clever" and overcomplicated solutions
+  * use descriptive variable names: what they contain
+  * use descriptive function names: what they do
+* general:
+  * use DRY principle (refactor your code)
+  * don't pollute global namespace, encapsulate instead
+  * don't use var, use let and const
+  * use strong type checks (=== and !==)
+* functions:
+  * generally, functions should do only one thing
+  * don't use more than 3 function parameters
+  * use default parameters whenever possible
+  * generally, return same data type as received
+  * use arrow functions when they make code more readable
+* OOP:
+  * use ES6 classes
+  * encapsulate data and don't mutate it from outside the class
+  * implement method chaining
+  * do not use arrow functions as methods (in regular objects)
+* avoid nested code:
+  * use early return (guard clauses)
+  * use ternary (condintional) or logical operators instead of if
+  * use multiple if instead of if/else-if
+  * avoid for loops, use array methods instead
+  * avoid callback-based asynchronous APIs
+* asynchronous code
+  * consume promises with async/await for best readability
+  * whenever possible, run promises in parallel (Promise.all)
+  * handle errors and promise rejections
