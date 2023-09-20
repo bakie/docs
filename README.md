@@ -24,6 +24,7 @@ when I started learning it and does not contain all the latest features.
     * [useradd](command_line/useradd/README.md)
     * [usermod](command_line/usermod/README.md)
 * [Docker](docker/README.md)
+* [HowTo](howto/README.md)
 * [Linux](linux/README.md)
 * [Packaging tools](packaging_tools/README.md)
     * [apt](packaging_tools/apt/README.md)
